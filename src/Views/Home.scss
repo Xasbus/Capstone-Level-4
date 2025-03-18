@@ -1,0 +1,135 @@
+$redHover: rgb(252, 0, 0, 1);
+$colorBody: rgb(180, 180, 180, 1);
+$subTitles: rgb(204, 204, 0, 1);
+$greenHover: rgba(12, 167, 113, 1);
+$colorNav: rgba(180, 100, 100, 1);
+$formBorder: rgba(0, 147, 0, 0.8);
+$textSpan: rgba(255, 166, 0, 1);
+$primaryFont: cursive;
+$titleFont: "GoS";
+
+@mixin shadowsBox {
+  box-shadow: 2px 2px red;
+}
+
+@mixin shadowText {
+  text-shadow: 1.5px 1.5px rgb(0, 0, 0);
+}
+
+@mixin bg-Color {
+  background-color: aquamarine;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.titleColor {
+  color: $subTitles;
+}
+
+h3:hover {
+  color: $greenHover;
+}
+
+h3 {
+  font-family: serif;
+}
+
+h1 {
+  text-align: center;
+  transform: scale(1);
+  transition: transform 1s;
+  & {
+    font-family: "GoS";
+  }
+  &:hover {
+    text-align: center;
+    transform: scale(1.5);
+    transition: 1.5s;
+    color: $redHover;
+  }
+}
+
+footer {
+  text-align: center !important;
+  font-size: 15px;
+}
+
+a {
+  text-decoration: none;
+  & {
+    color: $colorNav;
+  }
+}
+
+.creatorName {
+  font-size: 10px;
+}
+
+.formClass {
+  border-style: solid;
+  border-color: $formBorder;
+  padding: 10px;
+  margin: 10px;
+}
+
+#eleShad:hover {
+  @include shadowsBox();
+  @include shadowText();
+  @include bg-Color();
+}
+
+$whiteColor: white;
+p {
+  u {
+    color: $whiteColor;
+  }
+}
+
+.transparent {
+  opacity: 0.6;
+}
+
+ul {
+  background-image: linear-gradient(
+    rgba(30, 30, 30, 0.7),
+    rgba(72, 2, 164, 0.7),
+    rgba(68, 77, 4, 0.7)
+  );
+}
+
+.modalColor {
+  background-color: rgb(44, 6, 85);
+}
+
+.navColor {
+  background-color: rgb(44, 6, 85);
+}
+
+.colNavBarColor {
+  background-color: rgb(32, 112, 182) !important;
+}
+.navTextColor {
+  color: $colorBody;
+}
+#homeMain {
+  font-family: $primaryFont;
+  text-align: center;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  background-image: linear-gradient(
+    rgba(30, 30, 30, 0.7),
+    rgba(72, 2, 164, 0.7),
+    rgba(68, 77, 4, 0.7)
+  );
+  p {
+    span {
+      color: $textSpan;
+    }
+  }
+}

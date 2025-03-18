@@ -1,0 +1,39 @@
+{
+  "name": "capstone-level-3",
+  "version": "1.0.0",
+  "main": "utility-functions.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.751.0",
+    "@aws-sdk/lib-dynamodb": "^3.751.0",
+    "@babel/cli": "^7.26.4",
+    "@babel/core": "^7.26.9",
+    "@babel/preset-env": "^7.26.9",
+    "@babel/preset-react": "^7.26.3",
+    "@jest/globals": "^29.7.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "babel-loader": "^9.2.1",
+    "css-loader": "^7.1.2",
+    "image-map-resizer": "^1.0.10",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router": "^7.1.1",
+    "sass": "^1.83.4",
+    "sass-loader": "^16.0.4",
+    "style-loader": "^4.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^16.2.0",
+    "webpack-cli": "^6.0.1"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "description": ""
+}
