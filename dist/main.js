@@ -35164,7 +35164,7 @@ function Carousel() {
     "data-bs-ride": "carousel"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "carousel-inner",
-    id: "carouselTest"
+    "data-testid": "carouselTest"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "carousel-item active"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
@@ -35624,9 +35624,7 @@ function Games() {
       width: "65%",
       margin: "auto"
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    "data-testid": "carouselTest"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Carousel__WEBPACK_IMPORTED_MODULE_5__.Carousel, null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("article", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Carousel__WEBPACK_IMPORTED_MODULE_5__.Carousel, null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("article", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
     id: "thefirstdesendant",
     className: "titleColor"
   }, "The First Desendant"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Videos_TFD__WEBPACK_IMPORTED_MODULE_2__.TFD, {
@@ -36513,18 +36511,16 @@ function _handleSignIn() {
           resolveValue = _context.sent;
           isAuthenticated = resolveValue;
           if (!isAuthenticated) {
-            _context.next = 17;
+            _context.next = 18;
             break;
           }
           closeButton = document.getElementById("cancelButton");
           closeButton.click();
           inputs.reset();
-          // onSignIn();
-          _context.next = 18;
-          break;
-        case 17:
-          return _context.abrupt("return", "The email and password are incorrect.");
+          return _context.abrupt("return", "");
         case 18:
+          return _context.abrupt("return", "The email and password are incorrect.");
+        case 19:
         case "end":
           return _context.stop();
       }
