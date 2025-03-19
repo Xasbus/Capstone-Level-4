@@ -1,6 +1,6 @@
 import React from "react";
 
-export function GoW(props) {
+export function GoW(props: any) {
   const src = props.src;
   const label = props.label;
   const height = props.height;

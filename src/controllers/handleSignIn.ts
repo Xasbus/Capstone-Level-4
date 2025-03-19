@@ -2,7 +2,7 @@ import { authenticationAWS } from "../modules/loginAuthentication/authentication
 
 // async and await - allows the use of await that makes a function wait until promise is resolved
 export async function handleSignIn(
-  event = new Event()
+  event: any
   // onSignIn
 ) {
   event.preventDefault();

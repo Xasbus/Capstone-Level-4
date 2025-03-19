@@ -1,6 +1,6 @@
 import React from "react";
 
-export function StellarBlade(props) {
+export function StellarBlade(props: any) {
   const src = props.src;
   const label = props.label;
   const height = props.height;

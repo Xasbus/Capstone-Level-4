@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-export function TFD(props) {
+export function TFD(props: any) {
   useEffect(componentDidMount, []);
   const src = props.src;
   const label = props.label;

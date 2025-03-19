@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { SignInContent } from "./SignInContent";
 import { handleSignIn } from "../controllers/handleSignIn";
 
-export function SignInModal(props) {
+export function SignInModal(props: any) {
   const onSignIn = props.onSignIn;
   const [errorMessage, setErrorMessage] = useState("");
   return (

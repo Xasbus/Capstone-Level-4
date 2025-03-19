@@ -8,7 +8,7 @@ import { useNavigate } from "react-router";
  * This component depends on the local storage used by redirect.js
  * In redirect.js, properly set the root path.
  **************************************************/
-export function HandleRefresh(props) {
+export function HandleRefresh(props: any) {
   const children = props.children;
   const navigateTo = useNavigate();
   // the hook gives functions the ability to use BroswerRouter

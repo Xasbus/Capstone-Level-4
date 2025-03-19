@@ -1,4 +1,4 @@
-export function cardConverter(cardObject) {
+export function cardConverter(cardObject: any) {
   let cardString = `<div class="card">
     <img class="card-img-top" src="${cardObject.src}">
     <div class="card-body">
