@@ -1,4 +1,3 @@
-import { describe, expect, it } from "@jest/globals";
 import { authenticationAWS } from "./authenticationAWS";
 
 describe("The authenticationAWS function", () => {
@@ -20,8 +19,8 @@ describe("The authenticationAWS function", () => {
 
 async function correctCrenentials() {
   // Arrange
-  const email = "test@email.com";
-  const password = "test";
+  const email: string = "test@email.com";
+  const password: string = "test";
   // ACT
   const isAuthenticated = await authenticationAWS(email, password);
   // ASSERT
