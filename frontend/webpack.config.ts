@@ -1,3 +1,5 @@
+import { Configuration } from "webpack";
+
 export default {
   module: {
     rules: [
@@ -5,7 +7,7 @@ export default {
         // exclude: /\.(jpg|png)/,
         use: "babel-loader",
         exclude: /\.(scss|css|otf|ttf|json)/, // Stops babel-loader from trying to compile non JS files
-        test: /\.js/, // wanting babel-loader to only look at js
+        test: /\.(ks|jsx|ts|tsx)/, // wanting babel-loader to only look at js
       },
       {
         test: /\.(scss|css)/,
@@ -17,11 +19,17 @@ export default {
       },
     ],
   },
-  watch: true, // Watches for code change, used to auto complie.
-  watchOptions: { aggregateTimeout: 4000 }, // best to add this to give webpack more time to compile files
+  // watch: true, // Watches for code change, used to auto complie.
+  // watchOptions: { aggregateTimeout: 4000 }, // best to add this to give webpack more time to compile files
   mode: "development", // Mode that enables debugger
   devtool: "source-map", // Enables debugger code to match actual code.
-};
+  resolve: {
+    extensions: [".js", ".jsx", ".ts", ",tsx"],
+  },
+  devServer: {
+    historyAPIFallback: true,
+  },
+} as Configuration;
 
 // Must install packages
 // npm install sass sass-loader css-loader style-loader
