@@ -13,8 +13,8 @@ import "./index.scss";
 
 const domain = window.location.hostname; // Used to view the hostname you are in.
 let rootPath = ""; // rootpath needs to be blank and able to change
-if (domain === "xasbus.github.io") rootPath = "/Capstone-Lvl-3";
-// Basically says if my rootpath is ^ then add /Capstone-Lvl-3 which is the repository name I chose.
+if (domain === "xasbus.github.io") rootPath = "/Capstone-Level-4";
+// Basically says if my rootpath is ^ then add /Capstone-Lvl-4 which is the repository name I chose.
 // If the domain isn't that. Then leave it blank
 
 const bodyTag = document.getElementById("bodyTag");
