@@ -1,4 +1,4 @@
-import { output } from "../utils/output.js";
+import { output } from "../utils/output";
 
 export function viewResp(resolveValue) {
   const response = JSON.parse(resolveValue);

@@ -7,7 +7,7 @@ export default {
         // exclude: /\.(jpg|png)/,
         use: "babel-loader",
         exclude: /\.(scss|css|otf|ttf|json)/, // Stops babel-loader from trying to compile non JS files
-        test: /\.(ks|jsx|ts|tsx)/, // wanting babel-loader to only look at js
+        test: /\.(js|jsx|ts|tsx)/, // wanting babel-loader to only look at js
       },
       {
         test: /\.(scss|css)/,
@@ -24,10 +24,10 @@ export default {
   mode: "development", // Mode that enables debugger
   devtool: "source-map", // Enables debugger code to match actual code.
   resolve: {
-    extensions: [".js", ".jsx", ".ts", ",tsx"],
+    extensions: [".js", ".jsx", ".ts", ".tsx"],
   },
   devServer: {
-    historyAPIFallback: true,
+    historyApiFallback: true,
   },
 } as Configuration;
 

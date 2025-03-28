@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 
 import selfPic from "../../assets/contactphoto.jpg";
-import { getServerResponse1 } from "../modules/getServerRespone/getServerResponse1.js";
-import { getServerResponse3 } from "../modules/getServerRespone/getServerResponse3.js";
-import { getServerResponse2 } from "../modules/getServerRespone/getServerResponse2.js";
+import { getServerResponse1 } from "../modules/getServerRespone/getServerResponse1";
+import { getServerResponse3 } from "../modules/getServerRespone/getServerResponse3";
+import { getServerResponse2 } from "../modules/getServerRespone/getServerResponse2";
 
 export function Contact() {
   // search isolate

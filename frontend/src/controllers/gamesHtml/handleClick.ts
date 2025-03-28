@@ -1,4 +1,4 @@
-import { parseResp } from "../../modules/parseResp.js";
+import { parseResp } from "../../modules/parseResp";
 
 export function handleClick() {
   const promise = fetch(
