@@ -54,7 +54,7 @@ export function SignOutModal(props) {
       </form>
     </>
   );
-  function handleSubmit(event = new Event()) {
+  function handleSubmit(event: Event) {
     event.preventDefault();
     const inputs = event.target;
     const closeButton = inputs[1];

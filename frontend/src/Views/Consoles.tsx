@@ -196,7 +196,7 @@ export function Consoles() {
         <hr />
       </main>
       <footer>
-        <div width="100%">
+        <div>
           <div className="row">
             <div className="col">
               <a href="#playstation5">PlayStation 5</a>

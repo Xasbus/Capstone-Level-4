@@ -98,7 +98,7 @@ export function Contact() {
     console.log("Title mounted");
   }
   function componentDidUpdate() {
-    setTimeout(console.log("Nothing to update."), 2000);
+    console.log("Nothing to update.");
   }
   function componentDidUnmount() {
     return () => {

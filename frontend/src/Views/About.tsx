@@ -65,9 +65,9 @@ export function About() {
   }
 
   function componentDidUpdate() {
-    setTimeout(console.log("Nothing to update."), 2000);
+    console.log("Nothing to update.");
   }
   function compontentDidUnmount() {
-    setTimeout(console.log("Nothing to unmount."), 3000);
+    console.log("Nothing to unmount.");
   }
 }

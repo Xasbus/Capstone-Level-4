@@ -135,7 +135,7 @@ export function Accessories() {
         </article>
       </main>
       <footer>
-        <div width="100%">
+        <div>
           <div className="row">
             <div className="col">
               <a href="#normalcontroller">DualSense wireless controller</a>
@@ -161,9 +161,9 @@ export function Accessories() {
     console.log("Title Mounted");
   }
   function componentDidUpdate() {
-    setTimeout(console.log("Nothing to update"), 1000);
+    console.log("Nothing to update");
   }
   function compontentDidUnmount() {
-    setTimeout(console.log("Nothing to undate."), 2000);
+    console.log("Nothing to undate.");
   }
 }

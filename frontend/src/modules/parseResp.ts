@@ -1,4 +1,4 @@
-import { viewResp } from "./viewResp.js";
+import { viewResp } from "./viewResp";
 
 export function parseResp(resolveValue) {
   const promise = resolveValue.text();
