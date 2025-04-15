@@ -2,6 +2,11 @@ import express from "express";
 import cors from "cors";
 import { root } from "./routes/root";
 import { api } from "./routes/api";
+import serverless from "serverless-http";
+import { env } from "./routes/env";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const hostname = "localhost"; // local domain
 const port = 8000; // common backend ports: 8000, 9000, 3000
@@ -12,7 +17,10 @@ app.use(cors());
 app.get("/", root);
 app.get("/api", api);
 app.get(path, root); // This handler is to handle things that go through this path
-app.listen(port, hostname, handleListen);
+app.get("/env", env);
+
+const isRunningLocally = process.env.mode === "development";
+if (isRunningLocally) app.listen(port, hostname, handleListen);
 // app is object - get/listen is the method
 
 function handleListen() {
@@ -21,4 +29,7 @@ function handleListen() {
   console.log(
     `LOG: To debug, start this server in a JavaScript Debug Terminal`
   );
+  console.log(`LOG: npm run production to build in production mode.`);
 }
+
+export const handler = serverless(app); // Convert express app into a serverless app, compatiable with AWS Lambda
