@@ -1,10 +1,10 @@
 import { DynamoDB } from "@aws-sdk/client-dynamodb";
-import { DynamoDBDocument, GetCommandInput } from "@aws-sdk/lib-dynamodb";
+import { DynamoDBDocument, PutCommandInput } from "@aws-sdk/lib-dynamodb";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-export async function read(email = "", password = "") {
+export async function create(email = "", password = "") {
   debugger;
   const apiKey = {
     region: process.env.region,
@@ -17,12 +17,11 @@ export async function read(email = "", password = "") {
   const client = new DynamoDB(apiKey);
   const niceClient = DynamoDBDocument.from(client);
 
-  const request: GetCommandInput = {
+  const request: PutCommandInput = {
     TableName: "logins",
-    Key: { email: "test@email.com" },
+    Item: { email: "new@email.com", password: "new" },
   };
 
-  const response = await niceClient.get(request); // sending the request using the get method
-  const loginData = response.Item;
-  return loginData;
+  const response = await niceClient.put(request); // sending the request using the put method
+  return response;
 }

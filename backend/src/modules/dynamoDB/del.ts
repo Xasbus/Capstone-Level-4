@@ -1,10 +1,10 @@
 import { DynamoDB } from "@aws-sdk/client-dynamodb";
-import { DynamoDBDocument, GetCommandInput } from "@aws-sdk/lib-dynamodb";
+import { DeleteCommandInput, DynamoDBDocument } from "@aws-sdk/lib-dynamodb";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-export async function read(email = "", password = "") {
+export async function del(email = "", password = "") {
   debugger;
   const apiKey = {
     region: process.env.region,
@@ -17,12 +17,11 @@ export async function read(email = "", password = "") {
   const client = new DynamoDB(apiKey);
   const niceClient = DynamoDBDocument.from(client);
 
-  const request: GetCommandInput = {
+  const request: DeleteCommandInput = {
     TableName: "logins",
-    Key: { email: "test@email.com" },
+    Key: { email: "1test1@email.com" },
   };
 
-  const response = await niceClient.get(request); // sending the request using the get method
-  const loginData = response.Item;
-  return loginData;
+  const response = await niceClient.delete(request); // sending the request using the get method
+  return response;
 }
