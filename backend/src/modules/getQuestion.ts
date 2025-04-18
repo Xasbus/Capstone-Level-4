@@ -5,7 +5,7 @@ export async function getQuestion(query: {
   category: number;
   type: string;
 }) {
-  const { amount, category, type } = query; // Destructure the query object using properties above
+  const { amount = 3, category = 15, type = "multiple" } = query; // Destructure the query object using properties above
   const url = `https://opentdb.com/api.php?amount=${amount}&category=${category}&type=${type}`;
   const response = await axios.get(url);
 

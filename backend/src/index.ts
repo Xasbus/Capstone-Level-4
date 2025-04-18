@@ -6,6 +6,7 @@ import serverless from "serverless-http";
 import { env } from "./routes/env";
 import dotenv from "dotenv";
 import { crud } from "./routes/crud";
+import { apiQuestion } from "./routes/question";
 
 dotenv.config();
 
@@ -20,6 +21,7 @@ app.get("/api", api);
 app.get(path, root); // This handler is to handle things that go through this path
 app.get("/env", env);
 app.get("/crud", crud);
+app.get("/question", apiQuestion);
 
 const isRunningLocally = process.env.mode === "development";
 if (isRunningLocally) app.listen(port, hostname, handleListen);
