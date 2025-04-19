@@ -1,7 +1,4 @@
 {
-  "name": "capstone-level-4",
-  "version": "1.0.0",
-  "main": "utility-functions.js",
   "scripts": {
     "build": "npx webpack --mode=production",
     "start": "npx webpack server",
