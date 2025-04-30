@@ -24,6 +24,7 @@ export default {
       type: "commonjs", // Prevents tree shaking of unused bundle exports
     },
   },
-  plugins: [new Zip()], // Class name "Zip" matching the class imported from top.
+  plugins: [new Zip({ include: /^index.js$/ })], // Class name "Zip" matching the class imported from top.
   // plugin zips up the bundle file
+  // Zips everything into one file saving space
 } as Configuration;
