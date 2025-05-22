@@ -93,7 +93,7 @@ export function Games() {
         <h3 className="titleColor">Game Trivia</h3>
         <p>How well do you know your video game???</p>
         <button onClick={handleClick}>Click here to get questions</button>
-        <div id="myTag"></div>
+        <div id="outputTag"></div>
       </main>
       <footer>
         <p className="creatorName">Website created by David Billiot</p>

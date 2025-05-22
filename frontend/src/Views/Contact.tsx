@@ -117,7 +117,7 @@ export function Contact() {
   // Extracted them from controllers, adjusted, and moved old files to Archives.
   function handleEmail(event) {
     event.preventDefault();
-    setOutputMessage(` <br>Submitting your concerns. . . `);
+    setOutputMessage(` Submitting your concerns. . . `);
     const promise = new Promise(getServerResponse1);
     promise.then(parseResponse);
     // Promise are classes that run callback functions. getServerResponse1
@@ -125,13 +125,13 @@ export function Contact() {
   }
   function handleDate(event) {
     event.preventDefault();
-    setOutputMessage(` <br>Sumbitting appointment. . .  <br>`);
+    setOutputMessage(` Sumbitting appointment. . .  `);
     const promise = new Promise(getServerResponse3);
     promise.then(parseResponse);
   }
   function handlePhone(event) {
     event.preventDefault();
-    setOutputMessage(` <br>Your info is being processed. . .<br>`);
+    setOutputMessage(` Your info is being processed. . .`);
     const promise = new Promise(getServerResponse2);
     promise.then(parseResponse);
   }
