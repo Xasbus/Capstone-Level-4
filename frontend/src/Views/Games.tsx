@@ -1,9 +1,9 @@
 import React from "react";
-import { handleClick } from "../controllers/gamesHtml/handleClick";
 import { TFD } from "./Videos/TFD";
 import { GoW } from "./Videos/GoW";
 import { StellarBlade } from "./Videos/StellarBlade";
 import { Carousel } from "./Carousel";
+import { CouponGame } from "./CouponGame";
 
 export function Games() {
   return (
@@ -92,8 +92,7 @@ export function Games() {
         </article>
         <h3 className="titleColor">Game Trivia</h3>
         <p>How well do you know your video game???</p>
-        <button onClick={handleClick}>Click here to get questions</button>
-        <div id="outputTag"></div>
+        <CouponGame />
       </main>
       <footer>
         <p className="creatorName">Website created by David Billiot</p>
