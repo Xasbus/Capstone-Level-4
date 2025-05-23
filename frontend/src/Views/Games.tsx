@@ -1,5 +1,4 @@
 import React from "react";
-import { handleClick } from "../controllers/gamesHtml/handleClick";
 import { TFD } from "./Videos/TFD";
 import { GoW } from "./Videos/GoW";
 import { StellarBlade } from "./Videos/StellarBlade";

@@ -5,7 +5,7 @@ export function CouponGame() {
   const [question, setQuestion] = useState("");
   return (
     <section>
-      <button onClick={handleCoupon}>Click to get game questions</button>
+      <button onClick={handleCoupon}>Click to Try the Game</button>
       <div>{question}</div>
     </section>
   );
