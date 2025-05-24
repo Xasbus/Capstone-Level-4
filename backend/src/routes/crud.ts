@@ -5,9 +5,12 @@ import { update } from "../modules/dynamoDB/update";
 import { del } from "../modules/dynamoDB/del";
 
 export async function crud(request: Request, response: Response) {
-  const result = await read();
-  // const result = await create();
-  // const result = await update();
-  // const result = await del();
-  response.send(result);
+  const result1 = await read();
+  // const result2 = await create();
+  // const result3 = await update();
+  // const result4 = await del();
+  response.send(result1);
+  // response.send(result2);
+  // response.send(result3);
+  // response.send(result4);
 }
