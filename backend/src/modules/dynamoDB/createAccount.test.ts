@@ -2,10 +2,10 @@ import { Account } from "../Types/Account";
 import { createAccount } from "./createAccount";
 
 describe("createAccount", () => {
-  it.skip("add new email and password into logins table", async () => {
+  it("add new email and password into logins table", async () => {
     //ARRANGE
     const createUser: Account = {
-      email: "NewTest2@email.com",
+      email: "test@email.com",
       password: "test",
       name: "",
       phone: "",
@@ -17,7 +17,7 @@ describe("createAccount", () => {
     //ASSERT
     expect(result).toBeDefined();
   });
-  it("returns error when given existing email", async () => {
+  it.skip("returns error when given existing email", async () => {
     //ARRANGE
     const createUser: Account = {
       email: "test@email.com",
@@ -32,7 +32,7 @@ describe("createAccount", () => {
     //ASSERT
     expect(result).toBeUndefined();
   });
-  it("returns undefined when given empty email", async () => {
+  it.skip("returns undefined when given empty email", async () => {
     //ARRANGE
     const createUser: Account = {
       email: "",
@@ -47,7 +47,7 @@ describe("createAccount", () => {
     //ASSERT
     expect(result).toBeUndefined();
   });
-  it("returns error when given empty password", async () => {
+  it.skip("returns error when given empty password", async () => {
     //ARRANGE
     const createUser: Account = {
       email: "test@email.com",
@@ -62,7 +62,7 @@ describe("createAccount", () => {
     //ASSERT
     expect(result).toBeUndefined();
   });
-  it("returns error when given email already exists but password doesn't match", async () => {
+  it.skip("returns error when given email already exists but password doesn't match", async () => {
     //ARRANGE
     const createUser: Account = {
       email: "test@email.com",

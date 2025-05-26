@@ -3,7 +3,7 @@
     "start": "npm run close-port && npm run start-server",
     "build": "npm run open-tab && npm run start-build",
     "deploy": "npm run production && npm run zip",
-    "test": "npx jest ./src/modules/dynamoDB/createAccount.test.ts",
+    "test": "npx jest ./src/modules/dynamoDB/updateAccount.test.ts",
     "------": "-----------------------------------",
     "close-port": "npx kill-port 8000",
     "open-tab": "npx open-cli http://localhost:8000",

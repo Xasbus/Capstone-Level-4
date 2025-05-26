@@ -1,11 +1,20 @@
 import { DynamoDB } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocument, UpdateCommandInput } from "@aws-sdk/lib-dynamodb";
 import dotenv from "dotenv";
+import { readAccount } from "./readAccount";
+import { Account } from "../Types/Account";
 
 dotenv.config();
 
-export async function updateAccount(email = "", password = "") {
-  debugger;
+export async function updateAccount(account: Account) {
+  const { email, password, name, phone } = account;
+
+  if (!email || !password) return undefined;
+
+  const existingUser = await readAccount(account);
+
+  if (!existingUser || existingUser.password !== password) return undefined;
+
   const apiKey = {
     region: process.env.region,
     credentials: {
@@ -19,10 +28,14 @@ export async function updateAccount(email = "", password = "") {
 
   // After mousing over the update method, intellisense shows us request can be asserted with UpdateCommandInput
   // UpdateCommandInput will now show us AttributeUpdates
+
   const request: UpdateCommandInput = {
     TableName: "logins",
-    Key: { email: "2test2@email.com" },
-    AttributeUpdates: { password: { Value: "new2" } },
+    Key: { email: email },
+    AttributeUpdates: {
+      name: { Value: name },
+      phone: { Value: phone },
+    },
   };
 
   const response = await niceClient.update(request); // changing to update allows us to see what is needed to assert the request object
