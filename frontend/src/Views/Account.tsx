@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { handleReadAccount } from "../controllers/handleReadAccount";
 
 export function Account() {
   useEffect(componentDidMount, []);
@@ -7,21 +8,25 @@ export function Account() {
   return (
     <>
       <main>
-        <div className="card">
-          <h5 className="card-header">Read Function</h5>
-          <div className="card-body">
-            <p className="card-text">
-              <input />
-            </p>
-            <p className="card-text">
-              <input />
-            </p>
+        <form onSubmit={handleSubmit}>
+          <div className="card">
+            <h5 className="card-header">Read Function</h5>
+            <div className="card-body">
+              <p className="card-text">
+                <input
+                  name="email"
+                  defaultValue="test@email.com"
+                  type="email"
+                />
+              </p>
+              <p className="card-text">
+                <input name="password" defaultValue="test" type="password" />
+              </p>
 
-            <button onClick={} className="btn btn-primary">
-              Read
-            </button>
+              <button className="btn btn-primary">Click Read Button</button>
+            </div>
           </div>
-        </div>
+        </form>
         <hr />
       </main>
       <footer>Website is created by David Billiot</footer>
@@ -41,16 +46,6 @@ export function Account() {
   }
 }
 
-// async function handleClick() {
-//   const response = await axios.get("http://localhost:8000/quote");
-//   const quote = response.data.quote;
-//   const author = response.data.author;
-//   setQuote(quote);
-//   setAuthor(author);
-// }
-
-// const form = event.target;
-// const updateEmail = form[0].value;
-// const updatePassword = form[1].value;
-// const updateName = form[2].value;
-// const updatePhone = form[3].value;
+async function handleSubmit(event: any) {
+  const account = await handleReadAccount(event);
+}
