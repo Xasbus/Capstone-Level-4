@@ -5,11 +5,11 @@ import { Home } from "./Views/Home";
 import { Consoles } from "./Views/Consoles";
 import { Games } from "./Views/Games";
 import { Accessories } from "./Views/Accessories";
-import { About } from "./Views/About";
 import { Contact } from "./Views/Contact";
 import { Header } from "./Views/Header";
 import { HandleRefresh } from "./Views/HandleRefresh";
 import "./index.scss";
+import { Account } from "./Views/Account";
 
 const domain = window.location.hostname; // Used to view the hostname you are in.
 let rootPath = ""; // rootpath needs to be blank and able to change
@@ -32,7 +32,7 @@ root.render(
         <Route path={`${rootPath}/consoles`} element={<Consoles />} />
         <Route path={`${rootPath}/games`} element={<Games />} />
         <Route path={`${rootPath}/accessories`} element={<Accessories />} />
-        <Route path={`${rootPath}/about`} element={<About />} />
+        <Route path={`${rootPath}/account`} element={<Account />} />
         <Route path={`${rootPath}/contact`} element={<Contact />} />
       </Routes>
     </HandleRefresh>
