@@ -17,9 +17,9 @@ export function Account() {
               <input />
             </p>
 
-            <a href="#" className="btn btn-primary">
+            <button onClick={} className="btn btn-primary">
               Read
-            </a>
+            </button>
           </div>
         </div>
         <hr />
