@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-export async function update(email = "", password = "") {
+export async function updateAccount(email = "", password = "") {
   debugger;
   const apiKey = {
     region: process.env.region,
