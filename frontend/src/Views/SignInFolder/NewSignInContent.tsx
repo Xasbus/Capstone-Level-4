@@ -1,0 +1,19 @@
+import React from "react";
+
+export function NewSignInContent(props) {
+  const errorMessage = props.errorMessage;
+  return (
+    <>
+      <div className="bold">Would you like to log in?</div>
+      <br />
+      <div>
+        Email <i className="bi bi-envelope-at"></i> :
+        <input type="email" name="email" required />
+      </div>
+      <div>
+        Password: <input type="password" name="password" required />
+      </div>
+      <div style={{ color: "red" }}>{errorMessage}</div>
+    </>
+  );
+}

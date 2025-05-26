@@ -11,12 +11,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@aws-sdk/client-dynamodb": "^3.751.0",
-    "@aws-sdk/lib-dynamodb": "^3.751.0",
+    "@reduxjs/toolkit": "^2.8.2",
     "axios": "^1.8.4",
     "cors": "^2.8.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-redux": "^9.2.0",
     "react-router": "^7.1.1"
   },
   "devDependencies": {

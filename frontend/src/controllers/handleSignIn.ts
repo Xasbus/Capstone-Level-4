@@ -1,18 +1,11 @@
 import { authenticationAWS } from "../modules/loginAuthentication/authenticationAWS";
 
 // async and await - allows the use of await that makes a function wait until promise is resolved
-export async function handleSignIn(
-  event = new Event()
-  // onSignIn
-) {
+export async function handleSignIn(event: Event) {
   event.preventDefault();
-
-  const inputs = event.target;
-  const emailInput = inputs[1];
-  const passwordInput = inputs[2];
-
-  const email = emailInput.value;
-  const password = passwordInput.value;
+  const form = event.target.elements;
+  const email = form.email.value; // form.email points to the element, but .value gets the value inside the input box
+  const password = form.password.value;
 
   // use a variable to receive the resolve value from await function
   const resolveValue = await authenticationAWS(email, password);
