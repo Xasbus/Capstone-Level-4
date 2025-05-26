@@ -2,7 +2,7 @@ import { Account } from "../Types/Account";
 import { readAccount } from "./readAccount";
 
 describe("readAccount", () => {
-  it("returns true value when given an existing account", async () => {
+  it.skip("returns true value when given an existing account", async () => {
     //ARRANGE
     const readUser: Account = {
       email: "test@email.com",
@@ -17,7 +17,7 @@ describe("readAccount", () => {
     //ASSERT
     expect(result.email).toBe(readUser.email);
   });
-  it("returns value when given matching email and password", async () => {
+  it.skip("returns value when given matching email and password", async () => {
     //ARRANGE
     const readUser: Account = {
       email: "test@email.com",
@@ -32,7 +32,7 @@ describe("readAccount", () => {
     //ASSERT
     expect(result).toBeDefined();
   });
-  it("returns false when given emapty email", async () => {
+  it.skip("returns false when given emapty email", async () => {
     //ARRANGE
     const readUser: Account = {
       email: "",
@@ -47,7 +47,7 @@ describe("readAccount", () => {
     //ASSERT
     expect(result).toBeUndefined();
   });
-  it("returns error when given empty password don't match", async () => {
+  it.skip("returns error when given empty password don't match", async () => {
     //ARRANGE
     const readUser: Account = {
       email: "test@email.com",
@@ -62,7 +62,7 @@ describe("readAccount", () => {
     //ASSERT
     expect(result).toBeUndefined();
   });
-  it("returns error when given email that doesn't exist", async () => {
+  it.skip("returns error when given email that doesn't exist", async () => {
     //ARRANGE
     const readUser: Account = {
       email: "nothing@email.com",

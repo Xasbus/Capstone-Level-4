@@ -1,11 +1,13 @@
 import { DynamoDB } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocument, PutCommandInput } from "@aws-sdk/lib-dynamodb";
 import dotenv from "dotenv";
+import { Account } from "../Types/Account";
 
 dotenv.config();
 
-export async function create(email = "", password = "") {
-  debugger;
+export async function createAccount(account: Account) {
+  const { email, password, name, phone } = account;
+
   const apiKey = {
     region: process.env.region,
     credentials: {
@@ -19,7 +21,7 @@ export async function create(email = "", password = "") {
 
   const request: PutCommandInput = {
     TableName: "logins",
-    Item: { email: "new@email.com", password: "new" },
+    Item: { email: email, password: password },
   };
 
   const response = await niceClient.put(request); // sending the request using the put method
