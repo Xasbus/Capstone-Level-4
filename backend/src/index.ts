@@ -7,6 +7,7 @@ import { env } from "./routes/env";
 import dotenv from "dotenv";
 import { crud } from "./routes/crud";
 import { apiQuestion } from "./routes/question";
+import { read } from "./routes/read";
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.get(path, root); // This handler is to handle things that go through this pa
 app.get("/env", env);
 app.get("/crud", crud);
 app.get("/question", apiQuestion);
+app.post("/read", read);
 
 const isRunningLocally = process.env.mode === "development";
 if (isRunningLocally) app.listen(port, hostname, handleListen);

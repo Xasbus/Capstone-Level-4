@@ -1,11 +1,17 @@
 import { DynamoDB } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocument, GetCommandInput } from "@aws-sdk/lib-dynamodb";
 import dotenv from "dotenv";
+import { Account } from "./Account";
 
 dotenv.config();
 
-export async function read(email = "", password = "") {
-  debugger;
+export async function readAccount(
+  targetEmail: string,
+  targetPassword: string
+): Promise<Account | undefined> {
+  if (typeof targetEmail === "object") return undefined;
+  const isEmailFalsey = !targetEmail;
+  if (isEmailFalsey) return undefined;
   const apiKey = {
     region: process.env.region,
     credentials: {
