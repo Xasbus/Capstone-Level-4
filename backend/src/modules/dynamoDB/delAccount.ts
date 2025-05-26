@@ -1,11 +1,18 @@
 import { DynamoDB } from "@aws-sdk/client-dynamodb";
 import { DeleteCommandInput, DynamoDBDocument } from "@aws-sdk/lib-dynamodb";
 import dotenv from "dotenv";
+import { Account } from "../Types/Account";
+import { readAccount } from "./readAccount";
 
 dotenv.config();
 
-export async function delAccount(email = "", password = "") {
-  debugger;
+export async function delAccount(account: Account) {
+  const { email, password, name, phone } = account;
+  if (!email || !password) return undefined;
+  const existingUser = await readAccount(account);
+
+  if (!existingUser || existingUser.password !== password) return undefined;
+
   const apiKey = {
     region: process.env.region,
     credentials: {
@@ -19,7 +26,7 @@ export async function delAccount(email = "", password = "") {
 
   const request: DeleteCommandInput = {
     TableName: "logins",
-    Key: { email: "1test1@email.com" },
+    Key: { email: email },
   };
 
   const response = await niceClient.delete(request); // sending the request using the get method

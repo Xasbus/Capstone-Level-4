@@ -25,6 +25,7 @@ export async function readAccount(account: Account) {
   };
   if (!email || !password) return undefined;
   const response = await niceClient.get(request); // sending the request using the get method
+
   const loginData = response.Item;
   return loginData;
 }
