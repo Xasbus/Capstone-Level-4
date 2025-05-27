@@ -26,6 +26,13 @@ export default {
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx"],
   },
+  target: "node",
+  output: {
+    filename: "index.js",
+    library: {
+      type: "commonjs",
+    },
+  },
   devServer: {
     historyApiFallback: true,
   },
