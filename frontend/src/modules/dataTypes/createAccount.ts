@@ -11,7 +11,6 @@ export async function createAccount(account: Account): Promise<Account> {
     name,
     phone,
   };
-  debugger;
   const createUser = await axios.post(url, data);
   const loginData = createUser.data;
   return loginData as Account;

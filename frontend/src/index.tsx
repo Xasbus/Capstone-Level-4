@@ -12,6 +12,7 @@ import "./index.scss";
 import { Account } from "./Views/Account";
 import { Provider } from "react-redux";
 import { store } from "./modules/Redux/store";
+import { CreateAccount } from "./Views/CreateAccount";
 
 const domain = window.location.hostname; // Used to view the hostname you are in.
 let rootPath = ""; // rootpath needs to be blank and able to change
@@ -36,6 +37,7 @@ root.render(
           <Route path={`${rootPath}/games`} element={<Games />} />
           <Route path={`${rootPath}/accessories`} element={<Accessories />} />
           <Route path={`${rootPath}/account`} element={<Account />} />
+          <Route path={`${rootPath}/create`} element={<CreateAccount />} />
           <Route path={`${rootPath}/contact`} element={<Contact />} />
         </Routes>
       </HandleRefresh>
