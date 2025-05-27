@@ -1,7 +1,16 @@
 import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { selectConsolesDidMount } from "../modules/Redux/stateSelector";
+import { set } from "../modules/Redux/store";
 
 export function Consoles() {
+  const didMount: boolean = useSelector(selectConsolesDidMount);
+
   useEffect(componentDidMount, []);
+  useEffect(componentDidUpdate);
+  useEffect(componentDidUnmount, []);
+
+  const dispatch = useDispatch();
   return (
     <>
       <main>
@@ -221,5 +230,17 @@ export function Consoles() {
   function componentDidMount() {
     document.title = "Playstation - Console Page";
     console.log("Title mounted");
+    let action = set.consolesDidMount(true);
+    dispatch(action);
+  }
+  function componentDidUpdate() {
+    if (didMount) {
+      console.log("this is the update phase");
+    }
+  }
+  function componentDidUnmount() {
+    return () => {
+      console.log("Homepage has unmounted");
+    };
   }
 }

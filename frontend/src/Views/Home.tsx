@@ -267,7 +267,6 @@ export function Home() {
 
   function componentDidUpdate() {
     if (didMount) {
-      // if !didMount and is still false, setDidMount changes it to true and will log into the console
       console.log("this is the update phase");
     }
   }
