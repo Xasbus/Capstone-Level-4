@@ -1,12 +1,13 @@
 {
   "name": "capstone-level-4",
   "version": "1.0.0",
-  "main": "utility-functions.js",
+  "main": "src/index.js",
   "scripts": {
     "build": "npx webpack --mode=production",
     "start": "npx webpack server",
     "test": "npx jest ./src/modules/dataTypes/updateAccount.test.ts",
-    "deploy": "git push"
+    "deploy": "git push",
+    "update-cloudfront": "aws cloudfront create-invalidation --distribution-id E3UWD0WVFOHF8D --paths  \"/*\" "
   },
   "author": "",
   "license": "ISC",
