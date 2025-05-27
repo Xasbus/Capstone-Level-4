@@ -4,12 +4,18 @@ import selfPic from "../../assets/contactphoto.jpg";
 import { getServerResponse1 } from "../modules/getServerRespone/getServerResponse1";
 import { getServerResponse3 } from "../modules/getServerRespone/getServerResponse3";
 import { getServerResponse2 } from "../modules/getServerRespone/getServerResponse2";
+import { useDispatch, useSelector } from "react-redux";
+import { selectContactsDidMount } from "../modules/Redux/stateSelector";
+import { set } from "../modules/Redux/store";
 
 export function Contact() {
+  const didMount: boolean = useSelector(selectContactsDidMount);
   // search isolate
   useEffect(componentDidMount, []);
   useEffect(componentDidUpdate);
   useEffect(componentDidUnmount, []);
+
+  const dispatch = useDispatch();
 
   // State variables affects whats rendered.
   // search variables
@@ -96,7 +102,10 @@ export function Contact() {
   function componentDidMount() {
     document.title = "Playstation - Contact Page";
     console.log("Title mounted");
+    let action = set.consolesDidMount(true);
+    dispatch(action);
   }
+
   function componentDidUpdate() {
     console.log("Nothing to update.");
   }
