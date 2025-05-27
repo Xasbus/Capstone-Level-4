@@ -5,9 +5,9 @@ describe("updateAccount", () => {
   it("update info when email & password are matching", async () => {
     //ARRANGE
     const updateUser: Account = {
-      email: "test@email.com",
-      password: "test",
-      name: "Tommy",
+      email: "new2@email.com",
+      password: "new2",
+      name: "Todd",
       phone: "5552652334",
     };
 

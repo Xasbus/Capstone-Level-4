@@ -5,8 +5,8 @@ describe("createAccount", () => {
   it("add new email and password into logins table", async () => {
     //ARRANGE
     const createUser: Account = {
-      email: "test@email.com",
-      password: "test",
+      email: "test2@email.com",
+      password: "test2",
       name: "",
       phone: "",
     };

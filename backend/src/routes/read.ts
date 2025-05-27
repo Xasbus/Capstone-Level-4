@@ -1,10 +1,9 @@
 import { Request, Response } from "express";
-import { readAccount } from "../modules/dynamoDB/readAccount";
 import { Account } from "../modules/Types/Account";
+import { readAccount } from "../modules/dynamoDB/readAccount";
 
 export async function read(request: Request, response: Response) {
-  const email = request.body.email as string;
-  const password = request.body.password as string;
-  const account: Account = await readAccount(email, password);
-  response.send(account);
+  const account: Account = request.body;
+  const result = await readAccount(account);
+  response.send(result);
 }

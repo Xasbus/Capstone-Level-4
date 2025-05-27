@@ -1,4 +1,4 @@
-import express from "express";
+import express, { json, urlencoded } from "express";
 import cors from "cors";
 import { root } from "./routes/root";
 import { api } from "./routes/api";
@@ -8,6 +8,9 @@ import dotenv from "dotenv";
 // import { crud } from "./routes/crud";
 import { apiQuestion } from "./routes/question";
 import { read } from "./routes/read";
+import { create } from "./routes/create";
+import { remove } from "./routes/remove";
+import { update } from "./routes/update";
 
 dotenv.config();
 
@@ -17,12 +20,18 @@ const path = "/"; // The path where server info will be rendered in a browser
 
 const app = express(); // instantiate the Express.js  onject
 app.use(cors());
+app.use(urlencoded());
+app.use(json());
+
 app.get("/", root);
 app.get("/api", api);
 app.get(path, root); // This handler is to handle things that go through this path
 app.get("/env", env);
 // app.get("/crud", crud);
-app.get("/read", read);
+app.post("/read", read);
+app.post("/create", create);
+app.post("/remove", remove);
+app.post("/update", update);
 app.get("/question", apiQuestion);
 
 const isRunningLocally = process.env.mode === "development";

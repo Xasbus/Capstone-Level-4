@@ -12,7 +12,6 @@ export async function createAccount(account: Account) {
   if (!email || !password) return undefined;
   const existingUser = await readAccount(account);
   if (existingUser) return undefined;
-  if (!existingUser || existingUser.password !== password) return undefined;
 
   const apiKey = {
     region: process.env.region,
@@ -31,5 +30,6 @@ export async function createAccount(account: Account) {
   };
 
   const response = await niceClient.put(request); // sending the request using the put method
+  console.log(`LOG2:  Hi`);
   return response;
 }
