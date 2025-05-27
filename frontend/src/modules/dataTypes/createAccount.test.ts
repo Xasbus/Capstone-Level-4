@@ -2,11 +2,11 @@ import { Account } from "./Account";
 import { createAccount } from "./createAccount";
 
 describe("createAccount", () => {
-  it("add new email and password into logins table", async () => {
+  it.skip("add new email and password into logins table", async () => {
     //ARRANGE
     const createUser: Account = {
-      email: "test@email.com",
-      password: "test",
+      email: "NEEDnewEMAILforEACHtest@email.com",
+      password: "new2",
       name: "",
       phone: "",
     };

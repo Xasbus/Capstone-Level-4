@@ -6,31 +6,19 @@ export const stateSetters = {
     const newValue = action.payload;
     state.globalAccount = newValue;
   },
-  selectAccountReadMessage: function (
-    state: StateVariables,
-    action: ActionString
-  ) {
+  accountReadMessage: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
     state.accountReadMessage = newValue;
   },
-  selectAccountCreateMessage: function (
-    state: StateVariables,
-    action: ActionString
-  ) {
+  accountCreateMessage: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
     state.accountCreateMessage = newValue;
   },
-  selectAccountDeleteMessage: function (
-    state: StateVariables,
-    action: ActionString
-  ) {
+  accountDeleteMessage: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
     state.accountDeleteMessage = newValue;
   },
-  selectAccountUpdateMessage: function (
-    state: StateVariables,
-    action: ActionString
-  ) {
+  accountUpdateMessage: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
     state.accountUpdateMessage = newValue;
   },
