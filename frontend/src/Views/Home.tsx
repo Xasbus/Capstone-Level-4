@@ -10,6 +10,7 @@ import { selectHomeDidMount } from "../modules/Redux/stateSelector";
 
 // import styles directly
 export function Home() {
+  const result = JSON.stringify(<ImageMap />);
   const didMount: boolean = useSelector(selectHomeDidMount);
 
   useEffect(componentDidMount, []);
