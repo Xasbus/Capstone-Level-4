@@ -1,31 +1,30 @@
 import { StateVariables } from "./stateVariables";
 
-export function selectGlobalTotalQuantity(state: StateVariables) {
-  const { globalTotalQuantity } = state;
-  return globalTotalQuantity;
+export function selectAccountDidMount(state: StateVariables): boolean {
+  const { accountDidMount } = state;
+  return accountDidMount;
 }
-
-export function selectGlobalAnswer(state: StateVariables) {
-  const { globalAnswer } = state;
-  return globalAnswer;
+export function selectAccessoriesDidMount(state: StateVariables): boolean {
+  const { accessoriesDidMount } = state;
+  return accessoriesDidMount;
 }
-
-export function selectDidMount(state: StateVariables) {
-  const { didMount } = state;
-  return didMount;
+export function selectConsolesDidMount(state: StateVariables): boolean {
+  const { consolesDidMount } = state;
+  return consolesDidMount;
 }
-
-export function selectMessage(state: StateVariables) {
-  const { message } = state;
-  return message;
+export function selectContactsDidMount(state: StateVariables): boolean {
+  const { contactsDidMount } = state;
+  return contactsDidMount;
 }
-
-export function selectClickCount(state: StateVariables) {
-  const { clickCount } = state;
-  return clickCount;
+export function selectContactsOutputMessage(state: StateVariables): string {
+  const { contactsOutputMessage } = state;
+  return contactsOutputMessage;
 }
-
-export function selectComponent(state: StateVariables) {
-  const { component } = state;
-  return component;
+export function selectGamesDidMount(state: StateVariables): boolean {
+  const { gamesDidMount } = state;
+  return gamesDidMount;
+}
+export function selectHomeDidMount(state: StateVariables): boolean {
+  const { homeDidMount } = state;
+  return homeDidMount;
 }
