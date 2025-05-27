@@ -9,6 +9,7 @@ import { selectGamesDidMount } from "../modules/Redux/stateSelector";
 import { set } from "../modules/Redux/store";
 
 export function Games() {
+  const result = JSON.stringify(<Carousel />);
   const didMount: boolean = useSelector(selectGamesDidMount);
 
   useEffect(componentDidMount, []);
