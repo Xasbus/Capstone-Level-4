@@ -1,5 +1,13 @@
 import { StateVariables } from "./stateVariables";
 
+export function selectGlobalAccount(state: StateVariables) {
+  const { globalAccount } = state;
+  return globalAccount;
+}
+export function selectGlobalMessage(state: StateVariables): string {
+  const { globalMessage } = state;
+  return globalMessage;
+}
 export function selectAccountDidMount(state: StateVariables): boolean {
   const { accountDidMount } = state;
   return accountDidMount;

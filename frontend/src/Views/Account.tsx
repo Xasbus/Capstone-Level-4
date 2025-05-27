@@ -1,7 +1,20 @@
 import React, { useEffect } from "react";
 import { handleReadAccount } from "../controllers/handleReadAccount";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectAccountDidMount,
+  selectGlobalAccount,
+  selectGlobalMessage,
+} from "../modules/Redux/stateSelector";
+import { set } from "../modules/Redux/store";
 
 export function Account() {
+  const didMount: boolean = useSelector(selectAccountDidMount);
+  const message: string = useSelector(selectGlobalMessage);
+  let globalAccount: any = useSelector(selectGlobalAccount);
+
+  const dispatch = useDispatch();
+
   useEffect(componentDidMount, []);
   useEffect(componentDidUpdate);
   useEffect(compontentDidUnmount, []);
@@ -22,6 +35,7 @@ export function Account() {
               <p className="card-text">
                 <input name="password" defaultValue="test" type="password" />
               </p>
+              {message}
 
               <button className="btn btn-primary">Click Read Button</button>
             </div>
@@ -44,8 +58,13 @@ export function Account() {
   function compontentDidUnmount() {
     console.log("Nothing to unmount.");
   }
-}
+  async function handleSubmit(event: any) {
+    const account = await handleReadAccount(event);
+    const email = account.email;
+    const password = account.password;
+    const userMessage = `Email is ${email} and Password is ${password}`;
 
-async function handleSubmit(event: any) {
-  const account = await handleReadAccount(event);
+    let action = set.globalMessage(userMessage);
+    dispatch(action);
+  }
 }

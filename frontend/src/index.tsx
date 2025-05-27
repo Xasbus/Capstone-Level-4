@@ -10,6 +10,8 @@ import { Header } from "./Views/Header";
 import { HandleRefresh } from "./Views/HandleRefresh";
 import "./index.scss";
 import { Account } from "./Views/Account";
+import { Provider } from "react-redux";
+import { store } from "./modules/Redux/store";
 
 const domain = window.location.hostname; // Used to view the hostname you are in.
 let rootPath = ""; // rootpath needs to be blank and able to change
@@ -21,20 +23,22 @@ const bodyTag = document.getElementById("bodyTag");
 const root = createRoot(bodyTag);
 
 root.render(
-  <BrowserRouter>
-    <HandleRefresh>
-      <Header />
-      <Routes>
-        <Route path={`${rootPath}/`} element={<Home />} />
-        <Route path={`${rootPath}/home`} element={<Home />} />
-        <Route path={`${rootPath}/index.html`} element={<Home />} />
-        <Route path={`${rootPath}/404.html`} element={<Home />} />
-        <Route path={`${rootPath}/consoles`} element={<Consoles />} />
-        <Route path={`${rootPath}/games`} element={<Games />} />
-        <Route path={`${rootPath}/accessories`} element={<Accessories />} />
-        <Route path={`${rootPath}/account`} element={<Account />} />
-        <Route path={`${rootPath}/contact`} element={<Contact />} />
-      </Routes>
-    </HandleRefresh>
-  </BrowserRouter>
+  <Provider store={store}>
+    <BrowserRouter>
+      <HandleRefresh>
+        <Header />
+        <Routes>
+          <Route path={`${rootPath}/`} element={<Home />} />
+          <Route path={`${rootPath}/home`} element={<Home />} />
+          <Route path={`${rootPath}/index.html`} element={<Home />} />
+          <Route path={`${rootPath}/404.html`} element={<Home />} />
+          <Route path={`${rootPath}/consoles`} element={<Consoles />} />
+          <Route path={`${rootPath}/games`} element={<Games />} />
+          <Route path={`${rootPath}/accessories`} element={<Accessories />} />
+          <Route path={`${rootPath}/account`} element={<Account />} />
+          <Route path={`${rootPath}/contact`} element={<Contact />} />
+        </Routes>
+      </HandleRefresh>
+    </BrowserRouter>
+  </Provider>
 );

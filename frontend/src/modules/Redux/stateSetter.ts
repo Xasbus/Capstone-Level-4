@@ -1,6 +1,16 @@
+import { Account } from "../dataTypes/Account";
 import { StateVariables } from "./stateVariables";
 
 export const stateSetters = {
+  globalAccount: function (state: StateVariables, action: ActionAccount) {
+    const newValue = action.payload;
+    state.globalAccount = newValue;
+  },
+  globalMessage: function (state: StateVariables, action: ActionString) {
+    const newValue = action.payload;
+    state.globalMessage = newValue;
+  },
+
   accessoriesDidMount: function (state: StateVariables, action: ActionBoolean) {
     const newValue = action.payload;
     state.accessoriesDidMount = newValue;
@@ -43,5 +53,9 @@ type ActionString = {
 
 type Action = {
   payload: any;
+  type: string;
+};
+type ActionAccount = {
+  payload: Account | undefined;
   type: string;
 };
