@@ -5,7 +5,7 @@
   "scripts": {
     "build": "npx webpack --mode=production",
     "start": "npx webpack server",
-    "test": "npx jest ./src/modules/dataTypes/createAccount.test.ts",
+    "test": "npx jest ./src/modules/dataTypes/removeAccount.test.ts",
     "deploy": "git push"
   },
   "author": "",
