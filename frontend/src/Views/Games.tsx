@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { TFD } from "./Videos/TFD";
 import { GoW } from "./Videos/GoW";
 import { StellarBlade } from "./Videos/StellarBlade";
 import { Carousel } from "./Carousel";
 import { CouponGame } from "./CouponGame";
+import { useDispatch, useSelector } from "react-redux";
+import { selectGamesDidMount } from "../modules/Redux/stateSelector";
+import { set } from "../modules/Redux/store";
 
 export function Games() {
+  const didMount: boolean = useSelector(selectGamesDidMount);
+
+  useEffect(componentDidMount, []);
+  useEffect(componentDidUpdate);
+  useEffect(componentDidUnmount, []);
+
+  const dispatch = useDispatch();
   return (
     <>
       <main>
@@ -99,4 +109,23 @@ export function Games() {
       </footer>
     </>
   );
+
+  function componentDidMount() {
+    document.title = "Playstation - Games Page";
+    console.log("Title mounted, Carosel mounted");
+    let action = set.consolesDidMount(true);
+    dispatch(action);
+  }
+
+  function componentDidUpdate() {
+    if (didMount) {
+      console.log("this is the update phase");
+    }
+  }
+
+  function componentDidUnmount() {
+    return () => {
+      console.log("Component has unmounted");
+    };
+  }
 }

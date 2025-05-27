@@ -107,7 +107,9 @@ export function Contact() {
   }
 
   function componentDidUpdate() {
-    console.log("Nothing to update.");
+    if (didMount) {
+      console.log("this is the update phase");
+    }
   }
   function componentDidUnmount() {
     return () => {
