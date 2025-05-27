@@ -2,15 +2,18 @@ import React, { useEffect } from "react";
 import { handleReadAccount } from "../controllers/handleReadAccount";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  selectAccountCreateMessage,
   selectAccountDidMount,
+  selectAccountReadMessage,
   selectGlobalAccount,
-  selectGlobalMessage,
 } from "../modules/Redux/stateSelector";
 import { set } from "../modules/Redux/store";
+import { handleCreateAccount } from "../controllers/handleCreateAccount";
 
 export function Account() {
   const didMount: boolean = useSelector(selectAccountDidMount);
-  const message: string = useSelector(selectGlobalMessage);
+  const readMessage: string = useSelector(selectAccountReadMessage);
+  const createMessage: string = useSelector(selectAccountCreateMessage);
   let globalAccount: any = useSelector(selectGlobalAccount);
 
   const dispatch = useDispatch();
@@ -18,6 +21,7 @@ export function Account() {
   useEffect(componentDidMount, []);
   useEffect(componentDidUpdate);
   useEffect(compontentDidUnmount, []);
+
   return (
     <>
       <main>
@@ -35,9 +39,36 @@ export function Account() {
               <p className="card-text">
                 <input name="password" defaultValue="test" type="password" />
               </p>
-              {message}
+              {readMessage}
 
-              <button className="btn btn-primary">Click Read Button</button>
+              <button type="submit" className="btn btn-primary">
+                Click Read Button
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <form onSubmit={handleSubmit2}>
+          <div className="card">
+            <h5 className="card-header">Create Function</h5>
+            <div className="card-body">
+              <p className="card-text">
+                <input name="email" type="email" />
+              </p>
+              <p className="card-text">
+                <input name="password" type="password" />
+              </p>
+              <p className="card-text">
+                <input name="name" type="text" />
+              </p>
+              <p className="card-text">
+                <input name="phone" type="tel" />
+              </p>
+              {createMessage}
+
+              <button type="submit" className="btn btn-primary">
+                Click Create Button
+              </button>
             </div>
           </div>
         </form>
@@ -46,6 +77,27 @@ export function Account() {
       <footer>Website is created by David Billiot</footer>
     </>
   );
+
+  async function handleSubmit(event: any) {
+    const account = await handleReadAccount(event);
+    const email = account.email;
+    const password = account.password;
+    const userMessage = `Email is ${email} and Password is ${password}`;
+
+    let action = set.accountReadMessage(userMessage);
+    dispatch(action);
+  }
+  async function handleSubmit2(event: any) {
+    const account = await handleCreateAccount(event);
+    const email = account.email;
+    const password = account.password;
+    const name = account.name;
+    const phone = account.phone;
+    const userMessage = `Email is ${email} and Password is ${password}, name is ${name}, phone number is ${phone}`;
+
+    let action = set.accountCreateMessage(userMessage);
+    dispatch(action);
+  }
 
   function componentDidMount() {
     document.title = "Playstation - About Page";
@@ -57,14 +109,5 @@ export function Account() {
   }
   function compontentDidUnmount() {
     console.log("Nothing to unmount.");
-  }
-  async function handleSubmit(event: any) {
-    const account = await handleReadAccount(event);
-    const email = account.email;
-    const password = account.password;
-    const userMessage = `Email is ${email} and Password is ${password}`;
-
-    let action = set.globalMessage(userMessage);
-    dispatch(action);
   }
 }

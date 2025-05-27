@@ -13,7 +13,6 @@ export async function createAccount(account: Account): Promise<Account> {
   };
   debugger;
   const createUser = await axios.post(url, data);
-  debugger;
   const loginData = createUser.data;
   return loginData as Account;
 }

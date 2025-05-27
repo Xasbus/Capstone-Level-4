@@ -11,9 +11,7 @@ export async function readAccount(account: Account): Promise<Account> {
     // name: "",
     // phone: "",
   };
-  debugger;
   const readUser = await axios.post(readUrl, data);
-  debugger;
   const loginData = readUser.data;
   return loginData as Account;
 }

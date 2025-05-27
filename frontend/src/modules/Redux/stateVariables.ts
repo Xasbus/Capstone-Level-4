@@ -1,8 +1,11 @@
 export const stateVariables = {
   globalAccount: undefined,
-  globalMessage: "",
 
   accountDidMount: false,
+  accountReadMessage: "",
+  accountCreateMessage: "",
+  accountDeleteMessage: "",
+  accountUpdateMessage: "",
 
   accessoriesDidMount: false,
 

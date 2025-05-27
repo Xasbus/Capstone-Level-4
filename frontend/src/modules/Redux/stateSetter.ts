@@ -6,9 +6,33 @@ export const stateSetters = {
     const newValue = action.payload;
     state.globalAccount = newValue;
   },
-  globalMessage: function (state: StateVariables, action: ActionString) {
+  selectAccountReadMessage: function (
+    state: StateVariables,
+    action: ActionString
+  ) {
     const newValue = action.payload;
-    state.globalMessage = newValue;
+    state.accountReadMessage = newValue;
+  },
+  selectAccountCreateMessage: function (
+    state: StateVariables,
+    action: ActionString
+  ) {
+    const newValue = action.payload;
+    state.accountCreateMessage = newValue;
+  },
+  selectAccountDeleteMessage: function (
+    state: StateVariables,
+    action: ActionString
+  ) {
+    const newValue = action.payload;
+    state.accountDeleteMessage = newValue;
+  },
+  selectAccountUpdateMessage: function (
+    state: StateVariables,
+    action: ActionString
+  ) {
+    const newValue = action.payload;
+    state.accountUpdateMessage = newValue;
   },
 
   accessoriesDidMount: function (state: StateVariables, action: ActionBoolean) {
@@ -51,10 +75,6 @@ type ActionString = {
   type: string;
 };
 
-type Action = {
-  payload: any;
-  type: string;
-};
 type ActionAccount = {
   payload: Account | undefined;
   type: string;

@@ -4,9 +4,21 @@ export function selectGlobalAccount(state: StateVariables) {
   const { globalAccount } = state;
   return globalAccount;
 }
-export function selectGlobalMessage(state: StateVariables): string {
-  const { globalMessage } = state;
-  return globalMessage;
+export function selectAccountReadMessage(state: StateVariables): string {
+  const { accountReadMessage } = state;
+  return accountReadMessage;
+}
+export function selectAccountCreateMessage(state: StateVariables): string {
+  const { accountCreateMessage } = state;
+  return accountCreateMessage;
+}
+export function selectAccountDeleteMessage(state: StateVariables): string {
+  const { accountDeleteMessage } = state;
+  return accountDeleteMessage;
+}
+export function selectAccountUpdateMessage(state: StateVariables): string {
+  const { accountUpdateMessage } = state;
+  return accountUpdateMessage;
 }
 export function selectAccountDidMount(state: StateVariables): boolean {
   const { accountDidMount } = state;
