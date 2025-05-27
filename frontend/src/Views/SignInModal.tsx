@@ -22,7 +22,7 @@ export function SignInModal(props) {
         id="signInModal"
         data-bs-backdrop="static"
         data-bs-keyboard="false"
-        tabIndex="-1"
+        tabIndex={-1}
         aria-labelledby="signInModalLabel"
         aria-hidden="true"
       >

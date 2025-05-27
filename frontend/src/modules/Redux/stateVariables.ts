@@ -17,8 +17,7 @@ export const stateVariables = {
   gamesDidMount: false,
 
   homeDidMount: false,
-
-  component: "",
+  homeComponent: "",
 };
 
 export type StateVariables = typeof stateVariables;

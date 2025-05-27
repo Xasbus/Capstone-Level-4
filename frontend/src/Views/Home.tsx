@@ -4,15 +4,19 @@ import gamePic1 from "../../assets/gamePic1.jpg";
 import gamePic2 from "../../assets/gamePic2.jpg";
 import gamePic3 from "../../assets/gamePic3.jpg";
 import "./Home.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { set } from "../modules/Redux/store";
+import { selectHomeDidMount } from "../modules/Redux/stateSelector";
 
 // import styles directly
 export function Home() {
-  const [didMount, setDidMount] = useState(false);
-  // didMount is set to false
+  const didMount: boolean = useSelector(selectHomeDidMount);
 
   useEffect(componentDidMount, []);
   useEffect(componentDidUpdate);
   useEffect(componentDidUnmount, []);
+
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -256,7 +260,9 @@ export function Home() {
   function componentDidMount() {
     document.title = "Unofficial Playstation Site";
     console.log("Homepage mounted");
-    setDidMount(true);
+
+    let action = set.homeDidMount(true);
+    dispatch(action);
   }
 
   function componentDidUpdate() {
