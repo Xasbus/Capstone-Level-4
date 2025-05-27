@@ -1,29 +1,33 @@
 import { StateVariables } from "./stateVariables";
 
 export const stateSetters = {
-  globalAnswer: function (state: StateVariables, action: ActionString) {
+  accessoriesDidMount: function (state: StateVariables, action: ActionBoolean) {
     const newValue = action.payload;
-    state.globalAnswer;
+    state.accessoriesDidMount = newValue;
   },
-
-  didMount: function (state: StateVariables, action: ActionBoolean) {
+  accountDidMount: function (state: StateVariables, action: ActionBoolean) {
     const newValue = action.payload;
-    state.didMount = newValue;
+    state.accountDidMount = newValue;
   },
-
-  clickCount: function (state: StateVariables, action: Action) {
+  consolesDidMount: function (state: StateVariables, action: ActionBoolean) {
     const newValue = action.payload;
-    state.clickCount = newValue;
+    state.consolesDidMount = newValue;
   },
-
-  message: function (state: StateVariables, action: Action) {
+  contactsDidMount: function (state: StateVariables, action: ActionBoolean) {
     const newValue = action.payload;
-    state.message = newValue;
+    state.contactsDidMount = newValue;
   },
-
-  component: function (state: StateVariables, action: Action) {
+  contactOutputMessage: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
-    state.component = newValue;
+    state.contactsOutputMessage = newValue;
+  },
+  gamesDidMount: function (state: StateVariables, action: ActionBoolean) {
+    const newValue = action.payload;
+    state.gamesDidMount = newValue;
+  },
+  homeDidMount: function (state: StateVariables, action: ActionBoolean) {
+    const newValue = action.payload;
+    state.homeDidMount = newValue;
   },
 };
 
