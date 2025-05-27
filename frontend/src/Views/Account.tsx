@@ -3,17 +3,20 @@ import { handleReadAccount } from "../controllers/handleReadAccount";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectAccountCreateMessage,
+  selectAccountDeleteMessage,
   selectAccountDidMount,
   selectAccountReadMessage,
   selectGlobalAccount,
 } from "../modules/Redux/stateSelector";
 import { set } from "../modules/Redux/store";
 import { handleCreateAccount } from "../controllers/handleCreateAccount";
+import { handleDeleteAccount } from "../controllers/handleDeleteAccount";
 
 export function Account() {
   const didMount: boolean = useSelector(selectAccountDidMount);
   const readMessage: string = useSelector(selectAccountReadMessage);
   const createMessage: string = useSelector(selectAccountCreateMessage);
+  const deleteMessage: string = useSelector(selectAccountDeleteMessage);
   let globalAccount: any = useSelector(selectGlobalAccount);
 
   const dispatch = useDispatch();
@@ -47,7 +50,7 @@ export function Account() {
             </div>
           </div>
         </form>
-
+        <hr />
         <form onSubmit={handleSubmit2}>
           <div className="card">
             <h5 className="card-header">Create Function</h5>
@@ -65,7 +68,7 @@ export function Account() {
                 <input name="phone" type="tel" />
               </p>
               {createMessage}
-
+              <hr />
               <button type="submit" className="btn btn-primary">
                 Click Create Button
               </button>
@@ -73,6 +76,25 @@ export function Account() {
           </div>
         </form>
 
+        <form onSubmit={handleSubmit3}>
+          <div className="card">
+            <h5 className="card-header">Remove Function</h5>
+            <div className="card-body">
+              <p className="card-text">
+                <input name="email" type="email" />
+              </p>
+              <p className="card-text">
+                <input name="password" type="password" />
+              </p>
+              {deleteMessage}
+
+              <button type="submit" className="btn btn-primary">
+                Click Remove Button
+              </button>
+            </div>
+          </div>
+        </form>
+        <hr />
         <hr />
       </main>
       <footer>Website is created by David Billiot</footer>
@@ -99,6 +121,19 @@ export function Account() {
     const userMessage = `Email is ${email} and Password is ${password}, name is ${name}, phone number is ${phone}`;
 
     let action = set.accountCreateMessage(userMessage);
+    dispatch(action);
+  }
+
+  async function handleSubmit3(event: any) {
+    const account = await handleDeleteAccount(event);
+    const form = event.target;
+    const email = form[0].value;
+    const password = form[1].value;
+    // const name = form[2].value;
+    // const phone = form[3].value;
+    const userMessage = `Your account with the email: ${email} was removed.`;
+
+    let action = set.accountDeleteMessage(userMessage);
     dispatch(action);
   }
 

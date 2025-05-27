@@ -3,14 +3,14 @@ import { Account } from "./Account";
 import { readAccount } from "./readAccount";
 
 export async function removeAccount(account: Account): Promise<Account> {
-  const { email } = account;
-  if (!email) return undefined;
+  const { email, password } = account;
+  if (!email || !password) return undefined;
   const existingUser = await readAccount(account);
-  if (existingUser || !existingUser) return undefined;
+  if (!existingUser) return undefined;
   const url = `http://localhost:8000/remove`;
   const data = {
     email,
-    // password,
+    password,
     // name: "",
     // phone: "",
   };
