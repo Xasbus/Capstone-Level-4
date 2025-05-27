@@ -40,11 +40,37 @@ export function selectContactsOutputMessage(state: StateVariables): string {
   const { contactsOutputMessage } = state;
   return contactsOutputMessage;
 }
+
 export function selectGamesDidMount(state: StateVariables): boolean {
   const { gamesDidMount } = state;
   return gamesDidMount;
 }
+export function selectGameComponent1(state: StateVariables): string {
+  const { gameComponent } = state;
+  return gameComponent;
+}
+export function selectGameComponent2(state: StateVariables): string {
+  const { gameComponent } = state;
+  return gameComponent;
+}
+export function selectGameComponent3(state: StateVariables): string {
+  const { gameComponent } = state;
+  return gameComponent;
+}
+export function selectGameComponent4(state: StateVariables): string {
+  const { gameComponent } = state;
+  return gameComponent;
+}
+export function selectGameComponent5(state: StateVariables): string {
+  const { gameComponent } = state;
+  return gameComponent;
+}
+
 export function selectHomeDidMount(state: StateVariables): boolean {
   const { homeDidMount } = state;
   return homeDidMount;
+}
+export function selectHomeComponent(state: StateVariables): string {
+  const { homeComponent } = state;
+  return homeComponent;
 }

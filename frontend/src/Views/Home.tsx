@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { ImageMap } from "./ImageMap";
 import gamePic1 from "../../assets/gamePic1.jpg";
 import gamePic2 from "../../assets/gamePic2.jpg";
@@ -6,18 +6,25 @@ import gamePic3 from "../../assets/gamePic3.jpg";
 import "./Home.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { set } from "../modules/Redux/store";
-import { selectHomeDidMount } from "../modules/Redux/stateSelector";
+import {
+  selectHomeComponent,
+  selectHomeDidMount,
+} from "../modules/Redux/stateSelector";
+import { Carousel } from "./Carousel";
 
 // import styles directly
 export function Home() {
-  const result = JSON.stringify(<ImageMap />);
+  // const result = JSON.stringify(<ImageMap />);
   const didMount: boolean = useSelector(selectHomeDidMount);
+  let component: any = useSelector(selectHomeComponent);
 
   useEffect(componentDidMount, []);
   useEffect(componentDidUpdate);
   useEffect(componentDidUnmount, []);
 
   const dispatch = useDispatch();
+
+  if (component === "ImageMap") component = <ImageMap />;
 
   return (
     <>
@@ -182,9 +189,7 @@ export function Home() {
             <div className="container text-center">
               <div className="row row-cols-1">
                 <div className="col">
-                  <h4 id="accessories">
-                    <ImageMap />
-                  </h4>
+                  <h4 id="accessories">{component}</h4>
                 </div>
               </div>
               <div className="row">
@@ -257,12 +262,14 @@ export function Home() {
       </footer>
     </>
   );
-  // componentDidMount will run and mount the title in the tab
+
   function componentDidMount() {
     document.title = "Unofficial Playstation Site";
     console.log("Homepage mounted");
 
     let action = set.homeDidMount(true);
+    dispatch(action);
+    action = set.component("ImageMap");
     dispatch(action);
   }
 

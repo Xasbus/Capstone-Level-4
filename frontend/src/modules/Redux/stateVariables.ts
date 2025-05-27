@@ -15,6 +15,7 @@ export const stateVariables = {
   contactsOutputMessage: "",
 
   gamesDidMount: false,
+  gameComponent: "",
 
   homeDidMount: false,
   homeComponent: "",

@@ -5,18 +5,36 @@ import { StellarBlade } from "./Videos/StellarBlade";
 import { Carousel } from "./Carousel";
 import { CouponGame } from "./CouponGame";
 import { useDispatch, useSelector } from "react-redux";
-import { selectGamesDidMount } from "../modules/Redux/stateSelector";
+import {
+  selectGameComponent1,
+  selectGameComponent2,
+  selectGameComponent3,
+  selectGameComponent4,
+  selectGameComponent5,
+  selectGamesDidMount,
+} from "../modules/Redux/stateSelector";
 import { set } from "../modules/Redux/store";
 
 export function Games() {
-  const result = JSON.stringify(<Carousel />);
   const didMount: boolean = useSelector(selectGamesDidMount);
+  let component1: any = useSelector(selectGameComponent1);
+  let component2: any = useSelector(selectGameComponent2);
+  let component3: any = useSelector(selectGameComponent3);
+  let component4: any = useSelector(selectGameComponent4);
+  let component5: any = useSelector(selectGameComponent5);
 
   useEffect(componentDidMount, []);
   useEffect(componentDidUpdate);
   useEffect(componentDidUnmount, []);
 
   const dispatch = useDispatch();
+
+  if (component1 === "Carousel") component1 = <Carousel />;
+  if (component2 === "TFD") component2 = <TFD />;
+  if (component3 === "GoW") component3 = <GoW />;
+  if (component4 === "StellarBlade") component4 = <StellarBlade />;
+  if (component5 === "CouponGame") component4 = <CouponGame />;
+
   return (
     <>
       <main>
@@ -28,16 +46,14 @@ export function Games() {
         />
         <h1>Video Games</h1>
         <div style={{ width: "65%", margin: "auto" }}>
-          <div>
-            <Carousel />
-          </div>
+          <div>{component1}</div>
         </div>
 
         <article>
           <h3 id="thefirstdesendant" className="titleColor">
             The First Desendant
           </h3>
-          <TFD src="https://www.youtube.com/embed/wv5L9U_TUHQ?si=c2BUIg5_6cbfykx7" />
+          {component2}
           <div className="bold">About The First Desendant</div>
           <dialog open className="alert alert-success">
             Free Limited Time!!
@@ -65,7 +81,7 @@ export function Games() {
           <h3 id="godofwar" className="titleColor">
             God of War Ragnarok
           </h3>
-          <GoW />
+          {component3}
           <p className="bold">About God of War Ragnarok</p>
           <p>
             Torquent donec vehicula suspendisse nostra integer id parturient
@@ -81,7 +97,7 @@ export function Games() {
           <h3 id="stellarblade" className="titleColor">
             Stellar Blade
           </h3>
-          <StellarBlade />
+          {component4}
           <p className="bold">About Stellar Blade</p>
           <p>
             Posuere ullamcorper ornare vitae vitae nisl lacinia condimentum
@@ -103,7 +119,7 @@ export function Games() {
         </article>
         <h3 className="titleColor">Game Trivia</h3>
         <p>How well do you know your video game???</p>
-        <CouponGame />
+        {component5}
       </main>
       <footer>
         <p className="creatorName">Website created by David Billiot</p>
@@ -115,6 +131,16 @@ export function Games() {
     document.title = "Playstation - Games Page";
     console.log("Title mounted, Carosel mounted");
     let action = set.consolesDidMount(true);
+    dispatch(action);
+    action = set.component1("Carousel");
+    dispatch(action);
+    action = set.component2("TFD");
+    dispatch(action);
+    action = set.component3("GoW");
+    dispatch(action);
+    action = set.component4("StellarBlade");
+    dispatch(action);
+    action = set.component5("CouponGame");
     dispatch(action);
   }
 

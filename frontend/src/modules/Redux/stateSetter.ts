@@ -47,9 +47,33 @@ export const stateSetters = {
     const newValue = action.payload;
     state.gamesDidMount = newValue;
   },
+  gameComponent1: function (state: StateVariables, action: ActionString) {
+    const newValue = action.payload;
+    state.gameComponent = newValue;
+  },
+  gameComponent2: function (state: StateVariables, action: ActionString) {
+    const newValue = action.payload;
+    state.gameComponent = newValue;
+  },
+  gameComponent3: function (state: StateVariables, action: ActionString) {
+    const newValue = action.payload;
+    state.gameComponent = newValue;
+  },
+  gameComponent4: function (state: StateVariables, action: ActionString) {
+    const newValue = action.payload;
+    state.gameComponent = newValue;
+  },
+  gameComponent5: function (state: StateVariables, action: ActionString) {
+    const newValue = action.payload;
+    state.gameComponent = newValue;
+  },
   homeDidMount: function (state: StateVariables, action: ActionBoolean) {
     const newValue = action.payload;
     state.homeDidMount = newValue;
+  },
+  homeComponent: function (state: StateVariables, action: ActionString) {
+    const newValue = action.payload;
+    state.homeComponent = newValue;
   },
 };
 
