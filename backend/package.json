@@ -10,7 +10,7 @@
     "production": "npx webpack --mode=production",
     "start-server": "nodemon ./dist/index.js",
     "start-build": "npx webpack --watch",
-    "zip": "aws lambda update-function-code --function-name sandbox-level-4 --zip-file fileb://dist/index.js.zip"
+    "zip": "aws lambda update-function-code --function-name Capstone-Level-4 --zip-file fileb://dist/index.js.zip"
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.788.0",
