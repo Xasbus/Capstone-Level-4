@@ -37,7 +37,6 @@ root.render(
           <Route path={`${rootPath}/games`} element={<Games />} />
           <Route path={`${rootPath}/accessories`} element={<Accessories />} />
           <Route path={`${rootPath}/account`} element={<Account />} />
-          <Route path={`${rootPath}/create`} element={<CreateAccount />} />
           <Route path={`${rootPath}/contact`} element={<Contact />} />
         </Routes>
       </HandleRefresh>
