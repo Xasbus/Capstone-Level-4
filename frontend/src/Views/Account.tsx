@@ -1,22 +1,25 @@
 import React, { useEffect } from "react";
 import { handleReadAccount } from "../controllers/handleReadAccount";
+import { handleCreateAccount } from "../controllers/handleCreateAccount";
+import { handleDeleteAccount } from "../controllers/handleDeleteAccount";
+import { handleUpdateAccount } from "../controllers/handleUpdateAccount";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectAccountCreateMessage,
   selectAccountDeleteMessage,
   selectAccountDidMount,
   selectAccountReadMessage,
+  selectAccountUpdateMessage,
   selectGlobalAccount,
 } from "../modules/Redux/stateSelector";
 import { set } from "../modules/Redux/store";
-import { handleCreateAccount } from "../controllers/handleCreateAccount";
-import { handleDeleteAccount } from "../controllers/handleDeleteAccount";
 
 export function Account() {
   const didMount: boolean = useSelector(selectAccountDidMount);
   const readMessage: string = useSelector(selectAccountReadMessage);
   const createMessage: string = useSelector(selectAccountCreateMessage);
   const deleteMessage: string = useSelector(selectAccountDeleteMessage);
+  const updateMessage: string = useSelector(selectAccountUpdateMessage);
   let globalAccount: any = useSelector(selectGlobalAccount);
 
   const dispatch = useDispatch();
@@ -95,6 +98,30 @@ export function Account() {
           </div>
         </form>
         <hr />
+        <form onSubmit={handleSubmit4}>
+          <div className="card">
+            <h5 className="card-header">Update Function</h5>
+            <div className="card-body">
+              <p className="card-text">
+                <input name="email" type="email" />
+              </p>
+              <p className="card-text">
+                <input name="password" type="password" />
+              </p>
+              <p className="card-text">
+                <input name="name" type="text" />
+              </p>
+              <p className="card-text">
+                <input name="phone" type="tel" />
+              </p>
+              {updateMessage}
+
+              <button type="submit" className="btn btn-primary">
+                Click Update Button
+              </button>
+            </div>
+          </div>
+        </form>
         <hr />
       </main>
       <footer>Website is created by David Billiot</footer>
@@ -134,6 +161,19 @@ export function Account() {
     const userMessage = `Your account with the email: ${email} was removed.`;
 
     let action = set.accountDeleteMessage(userMessage);
+    dispatch(action);
+  }
+  async function handleSubmit4(event: any) {
+    const account = await handleUpdateAccount(event);
+    const form = event.target;
+    const email = form[0].value;
+    const password = form[1].value;
+    const name = form[2].value;
+    const phone = form[3].value;
+
+    const userMessage = `Your account with the email: ${email} has been updated. ${name}, and ${phone}`;
+
+    let action = set.accountUpdateMessage(userMessage);
     dispatch(action);
   }
 
