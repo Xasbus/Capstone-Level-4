@@ -21267,11 +21267,11 @@ function ai(_x, _x2) {
 }
 function _ai() {
   _ai = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee(request, response) {
-    var _request$query, question, context, answer;
+    var _request$body, question, context, answer;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) switch (_context.prev = _context.next) {
         case 0:
-          _request$query = request.query, question = _request$query.question, context = _request$query.context;
+          _request$body = request.body, question = _request$body.question, context = _request$body.context;
           _context.next = 3;
           return (0,_modules_getAnswer__WEBPACK_IMPORTED_MODULE_0__.getAnswer)(question, context);
         case 3:
@@ -21620,7 +21620,7 @@ __webpack_require__.r(__webpack_exports__);
 dotenv__WEBPACK_IMPORTED_MODULE_4___default().config();
 var hostname = "localhost"; // local domain
 var port = process.env.PORT; // common backend ports: 8000, 9000, 3000
-var path = "/"; // The path where server info will be rendered in a browser
+// const path = "/"; // The path where server info will be rendered in a browser
 
 var app = express__WEBPACK_IMPORTED_MODULE_0___default()(); // instantiate the Express.js  object
 app.use(cors__WEBPACK_IMPORTED_MODULE_1___default()()); //Allows communication with the frontend

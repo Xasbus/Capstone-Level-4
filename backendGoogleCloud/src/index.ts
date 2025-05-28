@@ -9,7 +9,7 @@ dotenv.config();
 
 const hostname = "localhost"; // local domain
 const port: any = process.env.PORT; // common backend ports: 8000, 9000, 3000
-const path = "/"; // The path where server info will be rendered in a browser
+// const path = "/"; // The path where server info will be rendered in a browser
 
 const app = express(); // instantiate the Express.js  object
 app.use(cors()); //Allows communication with the frontend
