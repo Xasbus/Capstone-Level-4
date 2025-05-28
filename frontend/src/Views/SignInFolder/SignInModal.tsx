@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import { handleSignIn } from "../../controllers/handleSignIn";
-import { NewSignInContent } from "./SignInContent";
+import { SignInContent } from "./SignInContent";
+import { set } from "../../modules/Redux/store";
+import { useDispatch } from "react-redux";
 
-export function NewSignInModal(props) {
-  const onSignIn = props.onSignIn;
+export function SignInModal() {
+  const dispatch = useDispatch();
+
+  // const onSignIn = props.onSignIn;
   const [errorMessage, setErrorMessage] = useState("");
+
   return (
     <>
       <button
@@ -40,7 +45,7 @@ export function NewSignInModal(props) {
               ></button>
             </div>
             <div className="modal-body">
-              <NewSignInContent errorMessage={errorMessage} />
+              <SignInContent errorMessage={errorMessage} />
             </div>
             <div className="modal-footer">
               <button
@@ -64,7 +69,10 @@ export function NewSignInModal(props) {
 
   async function handleSubmit(event: any) {
     const account = await handleSignIn(event);
-    if (account) onSignIn();
-    setErrorMessage("The email and password are incorrect.");
+    if (account) {
+      const action = set.globalAccount(account);
+      dispatch(action);
+      // onSignIn();
+    } else setErrorMessage("The email and password are incorrect.");
   }
 }

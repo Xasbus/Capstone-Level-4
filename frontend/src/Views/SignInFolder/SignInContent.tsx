@@ -1,6 +1,6 @@
 import React from "react";
 
-export function NewSignInContent(props) {
+export function SignInContent(props) {
   const errorMessage = props.errorMessage;
   return (
     <>

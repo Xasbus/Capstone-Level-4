@@ -1,6 +1,9 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { set } from "../../modules/Redux/store";
 
-export function NewSignOutModal(props) {
+export function SignOutModal(props) {
+  const dispatch = useDispatch();
   const onSignOut = props.onSignOut;
   return (
     <>
@@ -59,8 +62,9 @@ export function NewSignOutModal(props) {
     event.preventDefault();
     const inputs = event.target;
     const closeButton = inputs[1];
-
     closeButton.click();
-    onSignOut();
+    const action = set.globalAccount(undefined);
+    dispatch(action);
+    // onSignOut();
   }
 }
