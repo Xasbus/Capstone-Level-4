@@ -21245,6 +21245,28 @@ function _getAnswer() {
 
 /***/ }),
 
+/***/ "./src/modules/postAnswer.ts":
+/*!***********************************!*\
+  !*** ./src/modules/postAnswer.ts ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   postAnswer: () => (/* binding */ postAnswer)
+/* harmony export */ });
+function postAnswer(request, response) {
+  var data = {
+    origin: request.headers.origin,
+    query: request.query,
+    body: request.body
+  };
+  response.send(data);
+}
+
+/***/ }),
+
 /***/ "./src/routes/ai.ts":
 /*!**************************!*\
   !*** ./src/routes/ai.ts ***!
@@ -21322,7 +21344,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 function root(request, response) {
   var url = request.url;
-  response.send("<h1>Express Template</h1><p>Welcome to the backend page. Your path is ".concat(url, "</p>"));
+  response.send("<h1>Google Cloud Page.</h1><p>Welcome to the backend page. Your path is ".concat(url, "</p>"));
 }
 
 /***/ }),
@@ -21611,6 +21633,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var dotenv__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! dotenv */ "./node_modules/.pnpm/dotenv@16.5.0/node_modules/dotenv/lib/main.js");
 /* harmony import */ var dotenv__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(dotenv__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _routes_ai__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./routes/ai */ "./src/routes/ai.ts");
+/* harmony import */ var _modules_postAnswer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/postAnswer */ "./src/modules/postAnswer.ts");
+
 
 
 
@@ -21631,7 +21655,7 @@ app.get("/", _routes_root__WEBPACK_IMPORTED_MODULE_2__.root);
 app.get("/api", _routes_api__WEBPACK_IMPORTED_MODULE_3__.api);
 // app.get(path, handler); // This handler is to handle things that go through this path
 app.post("/ai", _routes_ai__WEBPACK_IMPORTED_MODULE_5__.ai); // Use the HTTP method POST to receive data securely and unaltered (without special characters)
-
+app.post("/postAnswer", _modules_postAnswer__WEBPACK_IMPORTED_MODULE_6__.postAnswer);
 app.listen(port, hostname, handleListen);
 // app is object - get/listen is the method
 
