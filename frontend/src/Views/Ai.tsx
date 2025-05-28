@@ -19,7 +19,7 @@ export function Ai() {
         <br />
         <input type="submit" />
       </form>
-      <div>The answer shold be here {answer}</div>
+      {answer}
     </div>
   );
   async function handleSubmit(event: any) {
