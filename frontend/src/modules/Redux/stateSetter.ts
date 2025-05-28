@@ -6,6 +6,10 @@ export const stateSetters = {
     const newValue = action.payload;
     state.globalAccount = newValue;
   },
+  globalAnswer: function (state: StateVariables, action: ActionString) {
+    const newValue = action.payload;
+    state.globalAnswer = newValue;
+  },
   accountReadMessage: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
     state.accountReadMessage = newValue;

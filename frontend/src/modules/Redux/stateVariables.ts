@@ -1,5 +1,6 @@
 export const stateVariables = {
   globalAccount: undefined,
+  globalAnswer: "",
 
   accountDidMount: false,
   accountReadMessage: "",

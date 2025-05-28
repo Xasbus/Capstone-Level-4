@@ -13,6 +13,7 @@ import {
   selectGlobalAccount,
 } from "../modules/Redux/stateSelector";
 import { set } from "../modules/Redux/store";
+import { Ai } from "./Ai";
 
 export function Account() {
   const didMount: boolean = useSelector(selectAccountDidMount);
@@ -123,6 +124,8 @@ export function Account() {
           </div>
         </form>
         <hr />
+        <h2>AI STUFF</h2>
+        <Ai />
       </main>
       <footer>Website is created by David Billiot</footer>
     </>
