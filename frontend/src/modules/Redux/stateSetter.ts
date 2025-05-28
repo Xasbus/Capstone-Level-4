@@ -1,4 +1,5 @@
 import { Account } from "../dataTypes/Account";
+import { Credentials } from "../dataTypes/Credentials";
 import { StateVariables } from "./stateVariables";
 
 export const stateSetters = {
@@ -9,6 +10,13 @@ export const stateSetters = {
   globalAnswer: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
     state.globalAnswer = newValue;
+  },
+  globalCredentials: function (
+    state: StateVariables,
+    action: ActionCredentials
+  ) {
+    const newValue = action.payload;
+    state.globalCredentials = newValue;
   },
   accountReadMessage: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
@@ -93,5 +101,10 @@ type ActionString = {
 
 type ActionAccount = {
   payload: Account | undefined;
+  type: string;
+};
+
+type ActionCredentials = {
+  payload: Credentials | undefined;
   type: string;
 };

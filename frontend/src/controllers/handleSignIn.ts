@@ -4,10 +4,11 @@ import { authenticationAWS } from "../modules/loginAuthentication/authentication
 // async and await - allows the use of await that makes a function wait until promise is resolved
 export async function handleSignIn(event: Event): Promise<Account | undefined> {
   event.preventDefault();
-  const form = event.target.elements;
+  let form: any = event.target;
+  form = form.elements; // wrote extra line to remove ts error. Original was event.target.elements;
   const email = form.email.value;
   const password = form.password.value;
-  const inputs = event.target;
+  const inputs: any = event.target;
   const closeButton = form.closeButton;
 
   const account = await authenticationAWS(email, password);

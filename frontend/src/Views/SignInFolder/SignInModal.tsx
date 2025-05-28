@@ -3,6 +3,7 @@ import { handleSignIn } from "../../controllers/handleSignIn";
 import { SignInContent } from "./SignInContent";
 import { set } from "../../modules/Redux/store";
 import { useDispatch } from "react-redux";
+import { Credentials } from "../../modules/dataTypes/Credentials";
 
 export function SignInModal() {
   const dispatch = useDispatch();
@@ -70,6 +71,15 @@ export function SignInModal() {
     if (account) {
       const action = set.globalAccount(account);
       dispatch(action);
+
+      const currentTimestamp = Date.now();
+      const credentials: Credentials = {
+        email: account.email,
+        password: account.password,
+        timestamp: currentTimestamp,
+      };
+      const loginString = JSON.stringify(credentials); // Need JSON.stringify, because localStorage can only store strings (not objects)
+      localStorage.setItem("credentials", loginString); //setItem is a function(mouse over to show) it accepts a key and value
     } else setErrorMessage("The email and password are incorrect.");
   }
 }

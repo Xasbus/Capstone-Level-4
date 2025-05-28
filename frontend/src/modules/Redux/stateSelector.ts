@@ -8,6 +8,10 @@ export function selectGlobalAnswer(state: StateVariables) {
   const { globalAnswer } = state;
   return globalAnswer;
 }
+export function selectGlobalCredentials(state: StateVariables) {
+  const { globalCredentials } = state;
+  return globalCredentials;
+}
 export function selectAccountReadMessage(state: StateVariables): string {
   const { accountReadMessage } = state;
   return accountReadMessage;

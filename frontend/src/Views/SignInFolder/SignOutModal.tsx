@@ -64,5 +64,7 @@ export function SignOutModal() {
     closeButton.click();
     const action = set.globalAccount(undefined);
     dispatch(action);
+
+    localStorage.setItem("credentials", "");
   }
 }
