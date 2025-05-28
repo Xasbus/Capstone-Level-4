@@ -24,7 +24,11 @@ export async function getAnswer(
   };
   const response = await axios.post(url, data);
   let answer: string = response.data;
-  // if (!answer)
-  //     "Sorry, I couldn't find the answer. But here is a cookie. (7^.^)> (::)";
-  return `The answer is ${answer}. Hope this helps. This is render at ${baseUrl}.`;
+  if (!answer) {
+    const wrongAnswer =
+      "Sorry, I couldn't find the answer. But here is a cookie. (7^.^)> (::)";
+    return wrongAnswer;
+  } else {
+    return `The answer is ${answer}. Hope this helps. This is render at ${baseUrl}.`;
+  }
 }
