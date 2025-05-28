@@ -7,11 +7,10 @@ import { selectGlobalAccount } from "../../modules/Redux/stateSelector";
 export function SignInArea() {
   const account = useSelector(selectGlobalAccount);
   const [button, setButton] = useState(<></>);
-  // const [isSignedIn, setIsSignedIn] = useState(false);
   const [didMount, setDidMount] = useState(false);
 
   useEffect(componentDidMount, []);
-  useEffect(componentDidUpdate, [account]); // Will run everytime isSignedIn changes
+  useEffect(componentDidUpdate, [account]);
 
   const dispatch = useDispatch();
   return <>{button}</>;
@@ -20,27 +19,15 @@ export function SignInArea() {
     console.log("MOUNT PHASE: SignInArea");
     setDidMount(true);
 
-    if (account) setButton(<SignOutModal />);
+    if (account) setButton(<SignOutModal />); // child components
     else setButton(<SignInModal />);
   }
 
   function componentDidUpdate() {
-    // check to see if didMount is true. Prevents the code from running on mount phase.
     if (didMount) {
       console.log("UPDATE PHASE: SignInArea");
-
-      // check value of isSignedIn - updates the button using setButton
-      // if true - sets button to SignOutModal
-      // if false - sets button to SignInModal
       if (account) setButton(<SignOutModal />);
       else setButton(<SignInModal />);
     }
   }
-
-  // function handleSignIn() {
-  //   setIsSignedIn(true);
-  // }
-  // function handleSignOut() {
-  //   setIsSignedIn(false);
-  // }
 }

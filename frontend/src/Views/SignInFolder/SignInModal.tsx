@@ -6,8 +6,6 @@ import { useDispatch } from "react-redux";
 
 export function SignInModal() {
   const dispatch = useDispatch();
-
-  // const onSignIn = props.onSignIn;
   const [errorMessage, setErrorMessage] = useState("");
 
   return (
@@ -72,7 +70,6 @@ export function SignInModal() {
     if (account) {
       const action = set.globalAccount(account);
       dispatch(action);
-      // onSignIn();
     } else setErrorMessage("The email and password are incorrect.");
   }
 }
