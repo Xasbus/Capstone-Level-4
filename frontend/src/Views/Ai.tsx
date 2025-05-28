@@ -46,8 +46,6 @@ Ragnarök achieved critical and commercial success, selling 5.1 million units in
 
 Legacy and Cultural Impact
 The God of War series is renowned for its blend of mythological storytelling, intense combat, and character evolution. The transformation of Kratos from a vengeance-driven warrior to a reflective father figure has been praised for adding emotional depth to the franchise. The series' success has solidified its place in gaming history, influencing numerous action-adventure titles and storytelling approaches within the medium. `;
-
-    console.log(context);
     const form = event.target.elements;
     const question = form.question.value;
     const answer = await getAnswer(question, context);
