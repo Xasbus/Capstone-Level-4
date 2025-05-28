@@ -76,7 +76,6 @@ export function SignInModal() {
       const credentials: Credentials = {
         email: account.email,
         password: account.password,
-        timestamp: currentTimestamp,
       };
       const loginString = JSON.stringify(credentials); // Need JSON.stringify, because localStorage can only store strings (not objects)
       localStorage.setItem("credentials", loginString); //setItem is a function(mouse over to show) it accepts a key and value
