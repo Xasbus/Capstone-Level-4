@@ -15,7 +15,11 @@ export const stateVariables = {
   contactsOutputMessage: "",
 
   gamesDidMount: false,
-  gameComponent: "",
+  gameComponent1: "",
+  gameComponent2: "",
+  gameComponent3: "",
+  gameComponent4: "",
+  gameComponent5: "",
 
   homeDidMount: false,
   homeComponent: "",

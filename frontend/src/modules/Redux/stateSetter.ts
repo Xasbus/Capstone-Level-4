@@ -49,23 +49,23 @@ export const stateSetters = {
   },
   gameComponent1: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
-    state.gameComponent = newValue;
+    state.gameComponent1 = newValue;
   },
   gameComponent2: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
-    state.gameComponent = newValue;
+    state.gameComponent2 = newValue;
   },
   gameComponent3: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
-    state.gameComponent = newValue;
+    state.gameComponent3 = newValue;
   },
   gameComponent4: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
-    state.gameComponent = newValue;
+    state.gameComponent4 = newValue;
   },
   gameComponent5: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
-    state.gameComponent = newValue;
+    state.gameComponent5 = newValue;
   },
   homeDidMount: function (state: StateVariables, action: ActionBoolean) {
     const newValue = action.payload;

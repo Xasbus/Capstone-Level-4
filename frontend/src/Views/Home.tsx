@@ -10,7 +10,6 @@ import {
   selectHomeComponent,
   selectHomeDidMount,
 } from "../modules/Redux/stateSelector";
-import { Carousel } from "./Carousel";
 
 // import styles directly
 export function Home() {
@@ -269,7 +268,7 @@ export function Home() {
 
     let action = set.homeDidMount(true);
     dispatch(action);
-    action = set.component("ImageMap");
+    action = set.homeComponent("ImageMap");
     dispatch(action);
   }
 

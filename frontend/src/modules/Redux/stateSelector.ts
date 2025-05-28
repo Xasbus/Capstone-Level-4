@@ -46,24 +46,24 @@ export function selectGamesDidMount(state: StateVariables): boolean {
   return gamesDidMount;
 }
 export function selectGameComponent1(state: StateVariables): string {
-  const { gameComponent } = state;
-  return gameComponent;
+  const { gameComponent1 } = state;
+  return gameComponent1;
 }
 export function selectGameComponent2(state: StateVariables): string {
-  const { gameComponent } = state;
-  return gameComponent;
+  const { gameComponent2 } = state;
+  return gameComponent2;
 }
 export function selectGameComponent3(state: StateVariables): string {
-  const { gameComponent } = state;
-  return gameComponent;
+  const { gameComponent3 } = state;
+  return gameComponent3;
 }
 export function selectGameComponent4(state: StateVariables): string {
-  const { gameComponent } = state;
-  return gameComponent;
+  const { gameComponent4 } = state;
+  return gameComponent4;
 }
 export function selectGameComponent5(state: StateVariables): string {
-  const { gameComponent } = state;
-  return gameComponent;
+  const { gameComponent5 } = state;
+  return gameComponent5;
 }
 
 export function selectHomeDidMount(state: StateVariables): boolean {

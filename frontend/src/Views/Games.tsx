@@ -17,11 +17,11 @@ import { set } from "../modules/Redux/store";
 
 export function Games() {
   const didMount: boolean = useSelector(selectGamesDidMount);
-  let component1: any = useSelector(selectGameComponent1);
-  let component2: any = useSelector(selectGameComponent2);
-  let component3: any = useSelector(selectGameComponent3);
-  let component4: any = useSelector(selectGameComponent4);
-  let component5: any = useSelector(selectGameComponent5);
+  let CarouselComponent: any = useSelector(selectGameComponent1);
+  let tfdComponent: any = useSelector(selectGameComponent2);
+  let gowComponent: any = useSelector(selectGameComponent3);
+  let sbComponent: any = useSelector(selectGameComponent4);
+  let triviaComponent: any = useSelector(selectGameComponent5);
 
   useEffect(componentDidMount, []);
   useEffect(componentDidUpdate);
@@ -29,11 +29,11 @@ export function Games() {
 
   const dispatch = useDispatch();
 
-  if (component1 === "Carousel") component1 = <Carousel />;
-  if (component2 === "TFD") component2 = <TFD />;
-  if (component3 === "GoW") component3 = <GoW />;
-  if (component4 === "StellarBlade") component4 = <StellarBlade />;
-  if (component5 === "CouponGame") component4 = <CouponGame />;
+  if (CarouselComponent === "Carousel") CarouselComponent = <Carousel />;
+  if (tfdComponent === "TFD") tfdComponent = <TFD />;
+  if (gowComponent === "GoW") gowComponent = <GoW />;
+  if (sbComponent === "StellarBlade") sbComponent = <StellarBlade />;
+  if (triviaComponent === "CouponGame") triviaComponent = <CouponGame />;
 
   return (
     <>
@@ -46,14 +46,14 @@ export function Games() {
         />
         <h1>Video Games</h1>
         <div style={{ width: "65%", margin: "auto" }}>
-          <div>{component1}</div>
+          <div>{CarouselComponent}</div>
         </div>
 
         <article>
           <h3 id="thefirstdesendant" className="titleColor">
             The First Desendant
           </h3>
-          {component2}
+          <div>{tfdComponent}</div>
           <div className="bold">About The First Desendant</div>
           <dialog open className="alert alert-success">
             Free Limited Time!!
@@ -81,7 +81,7 @@ export function Games() {
           <h3 id="godofwar" className="titleColor">
             God of War Ragnarok
           </h3>
-          {component3}
+          {gowComponent}
           <p className="bold">About God of War Ragnarok</p>
           <p>
             Torquent donec vehicula suspendisse nostra integer id parturient
@@ -97,7 +97,7 @@ export function Games() {
           <h3 id="stellarblade" className="titleColor">
             Stellar Blade
           </h3>
-          {component4}
+          {sbComponent}
           <p className="bold">About Stellar Blade</p>
           <p>
             Posuere ullamcorper ornare vitae vitae nisl lacinia condimentum
@@ -119,7 +119,7 @@ export function Games() {
         </article>
         <h3 className="titleColor">Game Trivia</h3>
         <p>How well do you know your video game???</p>
-        {component5}
+        {triviaComponent}
       </main>
       <footer>
         <p className="creatorName">Website created by David Billiot</p>
@@ -132,15 +132,15 @@ export function Games() {
     console.log("Title mounted, Carosel mounted");
     let action = set.consolesDidMount(true);
     dispatch(action);
-    action = set.component1("Carousel");
+    action = set.gameComponent1("Carousel");
     dispatch(action);
-    action = set.component2("TFD");
+    action = set.gameComponent2("TFD");
     dispatch(action);
-    action = set.component3("GoW");
+    action = set.gameComponent3("GoW");
     dispatch(action);
-    action = set.component4("StellarBlade");
+    action = set.gameComponent4("StellarBlade");
     dispatch(action);
-    action = set.component5("CouponGame");
+    action = set.gameComponent5("CouponGame");
     dispatch(action);
   }
 
