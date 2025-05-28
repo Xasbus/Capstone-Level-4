@@ -41,16 +41,27 @@ export function SignInArea() {
   async function getPersistentLogin() {
     let account: Account = undefined;
     const login = localStorage.getItem("credentials");
+
     if (login) {
       const credentials: Credentials = JSON.parse(login); // convert login object with JSON.parse
-      const { email, password } = credentials;
-      account = await authenticationAWS(email, password);
-      if (account) {
-        const action = set.globalAccount(account);
-        dispatch(action);
-      } else localStorage.setItem("credentials", "");
+
+      const { email, password, timestamp } = credentials;
+
+      const currentTimestamp = Date.now();
+      const elaspedTime = currentTimestamp - timestamp;
+      const isExpired = elaspedTime > 1800000; // 5 hours
+
+      if (isExpired) localStorage.setItem("credentials", "");
+      else {
+        account = await authenticationAWS(email, password);
+
+        if (account) {
+          const action = set.globalAccount(account);
+          dispatch(action);
+        } else localStorage.setItem("credentials", "");
+      }
+      if (account) setButton(<SignOutModal />);
+      else setButton(<SignInModal />);
     }
-    if (account) setButton(<SignOutModal />);
-    else setButton(<SignInModal />);
   }
 }
