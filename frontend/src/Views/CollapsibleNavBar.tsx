@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink } from "react-router";
-import { NewSignInArea } from "./SignInFolder/NewSignInArea";
 
 export function CollapsibleNavbar() {
   const domain = window.location.hostname;
@@ -67,7 +66,7 @@ export function CollapsibleNavbar() {
             >
               Create Account
             </NavLink>
-            <NewSignInArea />
+            <SignInArea />
           </div>
         </div>
       </div>

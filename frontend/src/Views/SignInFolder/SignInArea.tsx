@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { NewSignOutModal } from "./NewSignOutModal";
-import { NewSignInModal } from "./NewSignInModal";
+import { NewSignOutModal } from "./SignOutModal";
+import { NewSignInModal } from "./SignInModal";
 
 export function NewSignInArea() {
   const [button, setButton] = useState();

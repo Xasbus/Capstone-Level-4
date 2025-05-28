@@ -1,6 +1,6 @@
 import React from "react";
 
-export function SignOutModal(props) {
+export function NewSignOutModal(props) {
   const onSignOut = props.onSignOut;
   return (
     <>
@@ -19,7 +19,7 @@ export function SignOutModal(props) {
         id="signOutModal"
         data-bs-backdrop="static"
         data-bs-keyboard="false"
-        tabIndex="-1"
+        tabIndex={-1}
         aria-labelledby="signOutModalLabel"
         aria-hidden="true"
       >
@@ -42,6 +42,7 @@ export function SignOutModal(props) {
                 type="button"
                 className="btn btn-secondary"
                 data-bs-dismiss="modal"
+                name="closeButton"
               >
                 Stay Online
               </button>
@@ -54,7 +55,7 @@ export function SignOutModal(props) {
       </form>
     </>
   );
-  function handleSubmit(event: Event) {
+  function handleSubmit(event: any) {
     event.preventDefault();
     const inputs = event.target;
     const closeButton = inputs[1];

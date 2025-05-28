@@ -1,33 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
+import { handleSignIn } from "../../controllers/handleSignIn";
+import { NewSignInContent } from "./SignInContent";
 
-export function NewSignOutModal(props) {
-  const onSignOut = props.onSignOut;
+export function NewSignInModal(props) {
+  const onSignIn = props.onSignIn;
+  const [errorMessage, setErrorMessage] = useState("");
   return (
     <>
       <button
         type="button"
         className="btn btn-primary modalColor"
         data-bs-toggle="modal"
-        data-bs-target="#signOutModal"
+        data-bs-target="#signInModal"
       >
-        Log Out
+        Log In
       </button>
 
       <form
         onSubmit={handleSubmit}
         className="modal fade"
-        id="signOutModal"
+        id="signInModal"
         data-bs-backdrop="static"
         data-bs-keyboard="false"
-        tabIndex="-1"
-        aria-labelledby="signOutModalLabel"
+        tabIndex={-1}
+        aria-labelledby="signInModalLabel"
         aria-hidden="true"
       >
         <div className="modal-dialog">
           <div className="modal-content modalColor">
             <div className="modal-header">
-              <h1 className="modal-title fs-5" id="signOutModalLabel">
-                Log Out
+              <h1 className="modal-title fs-5" id="signInModalLabel">
+                Login
               </h1>
               <button
                 type="button"
@@ -36,17 +39,21 @@ export function NewSignOutModal(props) {
                 aria-label="Close"
               ></button>
             </div>
-            <div className="modal-body">Are you sure you leave us?</div>
+            <div className="modal-body">
+              <NewSignInContent errorMessage={errorMessage} />
+            </div>
             <div className="modal-footer">
               <button
+                id="cancelButton"
                 type="button"
                 className="btn btn-secondary"
                 data-bs-dismiss="modal"
+                name="closeButton"
               >
-                Stay Online
+                Cancel
               </button>
               <button type="submit" className="btn btn-primary">
-                Log Out
+                Let's Go!
               </button>
             </div>
           </div>
@@ -54,12 +61,10 @@ export function NewSignOutModal(props) {
       </form>
     </>
   );
-  function handleSubmit(event: Event) {
-    event.preventDefault();
-    const inputs = event.target;
-    const closeButton = inputs[1];
 
-    closeButton.click();
-    onSignOut();
+  async function handleSubmit(event: any) {
+    const account = await handleSignIn(event);
+    if (account) onSignIn();
+    setErrorMessage("The email and password are incorrect.");
   }
 }
