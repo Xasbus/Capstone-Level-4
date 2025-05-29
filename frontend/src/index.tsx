@@ -12,7 +12,7 @@ import "./index.scss";
 import { Account } from "./Views/Account";
 import { Provider } from "react-redux";
 import { store } from "./modules/Redux/store";
-import { AccountInfoPage } from "./Views/User-Friendly/CreateAccount";
+import { AccountInfoPage } from "./Views/User-Friendly/AccountInfoPage";
 
 const domain = window.location.hostname; // Used to view the hostname you are in.
 let rootPath = ""; // rootpath needs to be blank and able to change

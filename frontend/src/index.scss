@@ -86,7 +86,16 @@ main {
     rgba(68, 77, 4, 0.7)
   );
 }
-
+#formText {
+  color: $subTitles;
+}
+#divColor {
+  font-family: $primaryFont;
+  text-align: center;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  background-image: linear-gradient(rgba(0, 0, 0));
+}
 footer {
   text-align: center !important;
   font-size: 15px;

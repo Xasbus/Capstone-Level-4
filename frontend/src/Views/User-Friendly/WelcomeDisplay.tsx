@@ -3,15 +3,15 @@ import { useSelector } from "react-redux";
 import { selectGlobalAccount } from "../../modules/Redux/stateSelector";
 
 function WelcomeDisplay() {
-  const account = useSelector(selectGlobalAccount);
+  const globalAccount = useSelector(selectGlobalAccount);
 
-  if (account && account.name) {
-    return <h3>Welcome, {account.name}!</h3>;
-  } else {
+  if (globalAccount)
+    return <h3 id="formText">Welcome, {globalAccount.name}!</h3>;
+  else {
     return (
-      <p>
+      <p id="formText">
         I am sorry. You are not logged in. Please Log In first at the top of the
-        page.
+        page. Don't have an account? Sign Up below and join us.
       </p>
     );
   }

@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { set } from "../../modules/Redux/store";
-
 import { selectAccountDidMount } from "../../modules/Redux/stateSelector";
 import WelcomeDisplay from "./WelcomeDisplay";
+import CreateContent from "./CreateContent";
 
 export function AccountInfoPage() {
   const didMount: boolean = useSelector(selectAccountDidMount);
@@ -20,6 +20,7 @@ export function AccountInfoPage() {
         <h1>ACCOUNT INFO PAGE</h1>
         <hr />
         <WelcomeDisplay />
+        <CreateContent />
       </main>
       <footer>
         <div>
