@@ -7,7 +7,9 @@ export const stateVariables = {
   accountReadMessage: "",
   accountCreateMessage: "",
   accountDeleteMessage: "",
-  accountUpdateMessage: "",
+  accountUpdateMessage1: "",
+  accountUpdateMessage2: "",
+  accountUpdateMessage3: "",
 
   accessoriesDidMount: false,
 

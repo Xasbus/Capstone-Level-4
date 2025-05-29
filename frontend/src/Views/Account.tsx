@@ -9,7 +9,7 @@ import {
   selectAccountDeleteMessage,
   selectAccountDidMount,
   selectAccountReadMessage,
-  selectAccountUpdateMessage,
+  // selectAccountUpdateMessage,
   selectGlobalAccount,
 } from "../modules/Redux/stateSelector";
 import { set } from "../modules/Redux/store";
@@ -20,7 +20,7 @@ export function Account() {
   const readMessage: string = useSelector(selectAccountReadMessage);
   const createMessage: string = useSelector(selectAccountCreateMessage);
   const deleteMessage: string = useSelector(selectAccountDeleteMessage);
-  const updateMessage: string = useSelector(selectAccountUpdateMessage);
+  // const updateMessage: string = useSelector(selectAccountUpdateMessage);
   let globalAccount: any = useSelector(selectGlobalAccount);
 
   const dispatch = useDispatch();

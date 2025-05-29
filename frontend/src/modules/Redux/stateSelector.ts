@@ -24,9 +24,17 @@ export function selectAccountDeleteMessage(state: StateVariables): string {
   const { accountDeleteMessage } = state;
   return accountDeleteMessage;
 }
-export function selectAccountUpdateMessage(state: StateVariables): string {
-  const { accountUpdateMessage } = state;
-  return accountUpdateMessage;
+export function selectAccountUpdateMessage1(state: StateVariables): string {
+  const { accountUpdateMessage1 } = state;
+  return accountUpdateMessage1;
+}
+export function selectAccountUpdateMessage2(state: StateVariables): string {
+  const { accountUpdateMessage2 } = state;
+  return accountUpdateMessage2;
+}
+export function selectAccountUpdateMessage3(state: StateVariables): string {
+  const { accountUpdateMessage3 } = state;
+  return accountUpdateMessage3;
 }
 export function selectAccountDidMount(state: StateVariables): boolean {
   const { accountDidMount } = state;

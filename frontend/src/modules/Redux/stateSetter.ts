@@ -30,9 +30,26 @@ export const stateSetters = {
     const newValue = action.payload;
     state.accountDeleteMessage = newValue;
   },
-  accountUpdateMessage: function (state: StateVariables, action: ActionString) {
+  accountUpdateMessage1: function (
+    state: StateVariables,
+    action: ActionString
+  ) {
     const newValue = action.payload;
-    state.accountUpdateMessage = newValue;
+    state.accountUpdateMessage1 = newValue;
+  },
+  accountUpdateMessage2: function (
+    state: StateVariables,
+    action: ActionString
+  ) {
+    const newValue = action.payload;
+    state.accountUpdateMessage2 = newValue;
+  },
+  accountUpdateMessage3: function (
+    state: StateVariables,
+    action: ActionString
+  ) {
+    const newValue = action.payload;
+    state.accountUpdateMessage3 = newValue;
   },
 
   accessoriesDidMount: function (state: StateVariables, action: ActionBoolean) {

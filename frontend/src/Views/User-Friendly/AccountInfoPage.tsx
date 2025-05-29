@@ -4,9 +4,12 @@ import { set } from "../../modules/Redux/store";
 import { selectAccountDidMount } from "../../modules/Redux/stateSelector";
 import WelcomeDisplay from "./WelcomeDisplay";
 import CreateContent from "./CreateContent";
+import UpdateContent from "./UpdateContent";
 
 export function AccountInfoPage() {
   const didMount: boolean = useSelector(selectAccountDidMount);
+
+  const isLoggedIn = localStorage.getItem("credentials");
 
   useEffect(componentDidMount, []);
   useEffect(componentDidUpdate);
@@ -20,26 +23,12 @@ export function AccountInfoPage() {
         <h1>ACCOUNT INFO PAGE</h1>
         <hr />
         <WelcomeDisplay />
-        <CreateContent />
+        {!isLoggedIn && <CreateContent />}
+        {isLoggedIn && <UpdateContent />}
+        <hr />
+        <hr />
       </main>
       <footer>
-        <div>
-          <div className="row">
-            <div className="col">
-              <a href="#playstation5">PlayStation 5</a>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col">
-              <a href="#playstation4">PlayStation 4</a>
-            </div>
-          </div>
-          <div>
-            <div className="col">
-              <a href="#playstationvr">PlayStation VR2</a>
-            </div>
-          </div>
-        </div>
         <div className="creatorName">Website created by David Billiot</div>
       </footer>
     </>
