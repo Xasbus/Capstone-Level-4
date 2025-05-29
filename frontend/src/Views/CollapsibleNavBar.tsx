@@ -61,6 +61,12 @@ export function CollapsibleNavbar() {
             >
               Account
             </NavLink>
+            <NavLink
+              className="nav-link navTextColor"
+              to={`${rootPath}/accountInfo`}
+            >
+              Account Page
+            </NavLink>
 
             <SignInArea />
           </div>
