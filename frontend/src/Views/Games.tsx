@@ -14,6 +14,7 @@ import {
   selectGamesDidMount,
 } from "../modules/Redux/stateSelector";
 import { set } from "../modules/Redux/store";
+import { Ai } from "./Ai";
 
 export function Games() {
   const didMount: boolean = useSelector(selectGamesDidMount);
@@ -92,6 +93,8 @@ export function Games() {
             et pharetra tortor mollis accumsan. Eros nam viverra adipiscing
             tempus nulla eros etiam congue in.
           </p>
+          <p>Have a Question about God of War? Ask our new bot.</p>
+          <Ai />
         </article>
         <article>
           <h3 id="stellarblade" className="titleColor">

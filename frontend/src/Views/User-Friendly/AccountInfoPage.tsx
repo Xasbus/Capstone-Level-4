@@ -5,6 +5,7 @@ import { selectAccountDidMount } from "../../modules/Redux/stateSelector";
 import WelcomeDisplay from "./WelcomeDisplay";
 import CreateContent from "./CreateContent";
 import UpdateContent from "./UpdateContent";
+import RemoveContent from "./RemoveContent";
 
 export function AccountInfoPage() {
   const didMount: boolean = useSelector(selectAccountDidMount);
@@ -25,6 +26,7 @@ export function AccountInfoPage() {
         <WelcomeDisplay />
         {!isLoggedIn && <CreateContent />}
         {isLoggedIn && <UpdateContent />}
+        {isLoggedIn && <RemoveContent />}
         <hr />
         <hr />
       </main>

@@ -13,7 +13,6 @@ export function Ai() {
         Ask you question about the God of War franchise here.
         <br /> <input name="question" />
         <br />
-        Context:
         <br />
         {/* <textarea name="context"></textarea> */}
         <br />

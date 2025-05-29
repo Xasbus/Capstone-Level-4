@@ -9,7 +9,6 @@ import { Contact } from "./Views/Contact";
 import { Header } from "./Views/Header";
 import { HandleRefresh } from "./Views/HandleRefresh";
 import "./index.scss";
-import { Account } from "./Views/Account";
 import { Provider } from "react-redux";
 import { store } from "./modules/Redux/store";
 import { AccountInfoPage } from "./Views/User-Friendly/AccountInfoPage";
@@ -37,7 +36,6 @@ root.render(
           <Route path={`${rootPath}/games`} element={<Games />} />
           <Route path={`${rootPath}/accessories`} element={<Accessories />} />
           <Route path={`${rootPath}/contact`} element={<Contact />} />
-          <Route path={`${rootPath}/account`} element={<Account />} />
           <Route
             path={`${rootPath}/accountInfo`}
             element={<AccountInfoPage />}
