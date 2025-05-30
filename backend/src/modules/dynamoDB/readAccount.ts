@@ -1,11 +1,13 @@
 import { GetCommandInput } from "@aws-sdk/lib-dynamodb";
 import dotenv from "dotenv";
 import { Account } from "./DataType/Account";
-import { dynamoClient } from "./DynamoClient";
+import { dynamoClient } from "./dynamoClient";
 
 dotenv.config();
 
-export async function readAccount(account: Account) {
+export async function readAccount(
+  account: Account
+): Promise<object | undefined> {
   const { email, password, name, phone } = account;
 
   const niceClient = dynamoClient();
