@@ -1,7 +1,7 @@
 import { GetCommandInput } from "@aws-sdk/lib-dynamodb";
 import dotenv from "dotenv";
 import { Account } from "./DataType/Account";
-import { dynamoClient } from "./DynamoClient";
+import { dynamoClient } from "./dynamoClient";
 
 dotenv.config();
 
@@ -22,6 +22,5 @@ export async function readAccount(account: Account) {
 
   const loginData = response.Item;
   if (!loginData || loginData.password !== password) return undefined;
-
   return loginData;
 }
