@@ -5,8 +5,8 @@ describe("delAccount", () => {
   it("remove account when given an existing account", async () => {
     //ARRANGE
     const removeUser: Account = {
-      email: "new@email.com",
-      password: "new",
+      email: "test2@email.com",
+      password: "test2",
       name: "",
       phone: "",
     };
@@ -15,9 +15,9 @@ describe("delAccount", () => {
     const result = await delAccount(removeUser);
 
     //ASSERT
-    expect(result).not.toBeUndefined();
+    expect(result).toBe(200);
   });
-  it.skip("returns undefined when email is empty", async () => {
+  it("returns undefined when email is empty", async () => {
     //ARRANGE
     const removeUser: Account = {
       email: "",
@@ -32,7 +32,7 @@ describe("delAccount", () => {
     //ASSERT
     expect(result).toBeUndefined();
   });
-  it.skip("returns undefined when password is empty", async () => {
+  it("returns undefined when password is empty", async () => {
     //ARRANGE
     const removeUser: Account = {
       email: "test@email",
@@ -47,7 +47,7 @@ describe("delAccount", () => {
     //ASSERT
     expect(result).toBeUndefined();
   });
-  it.skip("returns error when given unmatching email or password", async () => {
+  it("returns metadata when given unmatching email or password", async () => {
     //ARRANGE
     const removeUser: Account = {
       email: "test@email.com",
@@ -62,7 +62,7 @@ describe("delAccount", () => {
     //ASSERT
     expect(result).toBeUndefined();
   });
-  it.skip("returns error when given email that doesn't exist", async () => {
+  it("returns nothing when given email that doesn't exist", async () => {
     //ARRANGE
     const removeUser: Account = {
       email: "nothing@email.com",
