@@ -6,7 +6,9 @@ import { Account } from "./DataType/Account";
 
 dotenv.config();
 
-export async function createAccount(account: Account) {
+export async function createAccount(
+  account: Account
+): Promise<string | undefined> {
   const { email, password, name, phone } = account;
 
   if (!email || !password) return undefined;
