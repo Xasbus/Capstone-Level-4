@@ -1,4 +1,4 @@
-import { Account } from "../Types/Account";
+import { Account } from "./DataType/Account";
 import { delAccount } from "./delAccount";
 
 describe("delAccount", () => {
