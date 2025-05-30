@@ -6,7 +6,9 @@ import { dynamoClient } from "./dynamoClient";
 
 dotenv.config();
 
-export async function updateAccount(account: Account) {
+export async function updateAccount(
+  account: Account
+): Promise<object | undefined> {
   const { email, password, name, phone } = account;
 
   if (!email || !password) return undefined;
