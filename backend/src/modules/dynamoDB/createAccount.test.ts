@@ -15,7 +15,8 @@ describe("createAccount", () => {
     const result = await createAccount(createUser);
 
     //ASSERT
-    expect(result).toBeDefined();
+    expect(result).toHaveProperty("email");
+    expect(result).toHaveProperty("password");
   });
   it.skip("returns error when given existing email", async () => {
     //ARRANGE

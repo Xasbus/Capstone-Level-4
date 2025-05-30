@@ -5,7 +5,7 @@ import { readAccount } from "./readAccount";
 import { Account } from "../Types/Account";
 
 dotenv.config();
-debugger;
+
 export async function updateAccount(account: Account) {
   const { email, password, name, phone } = account;
 
@@ -37,7 +37,7 @@ export async function updateAccount(account: Account) {
       phone: { Value: phone },
     },
   };
-  debugger;
+
   console.log(`LOG UPDATE: ${name}, ${phone}`);
   const response = await niceClient.update(request); // changing to update allows us to see what is needed to assert the request object
   return response;
