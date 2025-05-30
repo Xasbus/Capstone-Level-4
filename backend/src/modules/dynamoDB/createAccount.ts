@@ -8,7 +8,7 @@ dotenv.config();
 
 export async function createAccount(
   account: Account
-): Promise<string | undefined> {
+): Promise<object | undefined> {
   const { email, password, name, phone } = account;
 
   if (!email || !password) return undefined;
