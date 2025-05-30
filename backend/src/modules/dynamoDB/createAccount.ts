@@ -3,6 +3,7 @@ import { DynamoDBDocument, PutCommandInput } from "@aws-sdk/lib-dynamodb";
 import dotenv from "dotenv";
 import { readAccount } from "./readAccount";
 import { Account } from "./DataType/Account";
+import { dynamoClient } from "./DynamoClient";
 
 dotenv.config();
 
@@ -13,16 +14,17 @@ export async function createAccount(account: Account) {
   const existingUser = await readAccount(account);
   if (existingUser) return undefined;
 
-  const apiKey = {
-    region: process.env.region,
-    credentials: {
-      accessKeyId: process.env.accessKeyId,
-      secretAccessKey: process.env.secretAccessKey,
-    },
-  };
+  // const apiKey = {
+  //   region: process.env.region,
+  //   credentials: {
+  //     accessKeyId: process.env.accessKeyId,
+  //     secretAccessKey: process.env.secretAccessKey,
+  //   },
+  // };
 
-  const client = new DynamoDB(apiKey);
-  const niceClient = DynamoDBDocument.from(client);
+  // const client = new DynamoDB(apiKey);
+  // const niceClient = DynamoDBDocument.from(client);
+  const niceClient = dynamoClient();
 
   const request: PutCommandInput = {
     TableName: "logins",
