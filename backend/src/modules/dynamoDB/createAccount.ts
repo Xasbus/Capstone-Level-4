@@ -1,8 +1,8 @@
 import { DynamoDB } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocument, PutCommandInput } from "@aws-sdk/lib-dynamodb";
 import dotenv from "dotenv";
-import { Account } from "../Types/Account";
 import { readAccount } from "./readAccount";
+import { Account } from "./DataType/Account";
 
 dotenv.config();
 
@@ -30,6 +30,8 @@ export async function createAccount(account: Account) {
   };
 
   const response = await niceClient.put(request); // sending the request using the put method
-  console.log(`LOG2:  Hi`);
-  return response;
+
+  const newUser = await readAccount(account);
+  console.log(newUser);
+  return newUser;
 }

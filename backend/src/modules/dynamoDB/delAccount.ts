@@ -1,8 +1,8 @@
 import { DynamoDB } from "@aws-sdk/client-dynamodb";
 import { DeleteCommandInput, DynamoDBDocument } from "@aws-sdk/lib-dynamodb";
 import dotenv from "dotenv";
-import { Account } from "../Types/Account";
 import { readAccount } from "./readAccount";
+import { Account } from "./DataType/Account";
 
 dotenv.config();
 
