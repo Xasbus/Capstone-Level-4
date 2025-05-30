@@ -5,18 +5,18 @@ describe("createAccount", () => {
   it("add new email and password into logins table", async () => {
     //ARRANGE
     const createUser: Account = {
-      email: "test2@email.com",
-      password: "test2",
-      name: "",
-      phone: "",
+      email: "new@email.com",
+      password: "new",
+      name: "Todd",
+      phone: "King",
     };
 
     //ACT
     const result = await createAccount(createUser);
 
     //ASSERT
-    expect(result).toHaveProperty("email");
-    expect(result).toHaveProperty("password");
+    expect(result).toHaveProperty("new@email.com");
+    expect(result).toHaveProperty("new");
   });
   it.skip("returns error when given existing email", async () => {
     //ARRANGE
