@@ -11,6 +11,7 @@ import { read } from "./routes/read";
 import { create } from "./routes/create";
 import { updateAccount } from "./modules/dynamoDB/updateAccount";
 import { update } from "./routes/update";
+import { del } from "./routes/del";
 
 dotenv.config();
 
@@ -28,6 +29,7 @@ app.get("/env", env);
 app.post("/read", read);
 app.post("/create", create);
 app.post("/update", update);
+app.post("/del", del);
 app.get("/question", apiQuestion);
 
 const isRunningLocally = process.env.mode === "development";
