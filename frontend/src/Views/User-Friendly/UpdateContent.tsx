@@ -30,7 +30,6 @@ function UpdateContent() {
                 <div id="formText">
                   Email: <br />
                 </div>
-                {/* <input name="email" type="email" /> */}
                 <input
                   required
                   name="email"
@@ -40,7 +39,6 @@ function UpdateContent() {
               </div>
             </p>
             <p className="card-text">
-              {/* <input name="password" type="password" /> */}
               <div id="emailSize">
                 <div id="formText">
                   Password: <br />
@@ -54,7 +52,6 @@ function UpdateContent() {
               </div>
             </p>
             <p className="card-text">
-              {/* <input name="name" type="text" /> */}
               <div id="emailSize">
                 <div id="formText">
                   Name: <br />
@@ -68,7 +65,6 @@ function UpdateContent() {
               </div>
             </p>
             <p className="card-text">
-              {/* <input name="phone" type="tel" /> */}
               <div id="emailSize">
                 <div id="formText">
                   Phone: <br />

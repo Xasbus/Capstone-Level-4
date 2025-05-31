@@ -10,6 +10,7 @@ import {
   selectHomeComponent,
   selectHomeDidMount,
 } from "../modules/Redux/stateSelector";
+import { apiUrl } from "../utils/apiUrl";
 
 // import styles directly
 export function Home() {
@@ -22,6 +23,9 @@ export function Home() {
   useEffect(componentDidUnmount, []);
 
   const dispatch = useDispatch();
+
+  const backendUrl = apiUrl();
+  console.log(`Using API URL: ${backendUrl}`);
 
   if (component === "ImageMap") component = <ImageMap />;
 

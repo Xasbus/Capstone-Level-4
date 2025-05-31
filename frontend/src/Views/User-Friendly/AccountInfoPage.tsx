@@ -28,7 +28,6 @@ export function AccountInfoPage() {
         {isLoggedIn && <UpdateContent />}
         {isLoggedIn && <RemoveContent />}
         <hr />
-        <hr />
       </main>
       <footer>
         <div className="creatorName">Website created by David Billiot</div>

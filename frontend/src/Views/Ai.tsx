@@ -14,8 +14,6 @@ export function Ai() {
         <br /> <input name="question" />
         <br />
         <br />
-        {/* <textarea name="context"></textarea> */}
-        <br />
         <input type="submit" />
       </form>
       {answer}
