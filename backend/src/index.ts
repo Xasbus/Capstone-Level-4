@@ -22,7 +22,7 @@ app.get("/api", api);
 app.get(path, root); // This handler is to handle things that go through this path
 app.get("/env", env);
 // app.get("/crud", crud);
-app.get("/read", read);
+app.post("/read", read);
 app.get("/question", apiQuestion);
 
 const isRunningLocally = process.env.mode === "development";
