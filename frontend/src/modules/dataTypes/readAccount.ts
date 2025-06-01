@@ -2,7 +2,9 @@ import axios from "axios";
 import { Account } from "./Account";
 
 export async function readAccount(account: Account): Promise<Account> {
-  const { email, password } = account;
+  let { email, password } = account;
+
+  if (!email || !password) return undefined;
 
   const readUrl = `http://localhost:8000/read`;
   const data = {
@@ -13,5 +15,8 @@ export async function readAccount(account: Account): Promise<Account> {
   };
   const readUser = await axios.post(readUrl, data);
   const loginData = readUser.data;
+
+  if (!loginData || !loginData.email || loginData.password !== password)
+    return undefined;
   return loginData as Account;
 }

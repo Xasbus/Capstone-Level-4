@@ -20,7 +20,7 @@ function RemoveContent() {
           Remove Function
         </h5>
         <div className="card-body">
-          <p className="card-text">
+          <div className="card-text">
             <div id="emailSize">
               <div id="formText">
                 Email: <br />
@@ -33,8 +33,8 @@ function RemoveContent() {
                 placeholder="Enter Your Email"
               />
             </div>
-          </p>
-          <p className="card-text">
+          </div>
+          <div className="card-text">
             {/* <input name="password" type="password" /> */}
             <div id="emailSize">
               <div id="formText">
@@ -47,7 +47,7 @@ function RemoveContent() {
                 placeholder="Enter Your Password"
               />
             </div>
-          </p>
+          </div>
           <div id="formText">{deleteMessage}</div>
 
           <button type="submit" className="btn btn-primary">

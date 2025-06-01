@@ -25,7 +25,7 @@ function UpdateContent() {
             Update Function
           </h5>
           <div className="card-body">
-            <p className="card-text">
+            <div className="card-text">
               <div id="emailSize">
                 <div id="formText">
                   Email: <br />
@@ -37,8 +37,8 @@ function UpdateContent() {
                   placeholder="Enter Your Email"
                 />
               </div>
-            </p>
-            <p className="card-text">
+            </div>
+            <div className="card-text">
               <div id="emailSize">
                 <div id="formText">
                   Password: <br />
@@ -50,8 +50,8 @@ function UpdateContent() {
                   placeholder="Enter Your Password"
                 />
               </div>
-            </p>
-            <p className="card-text">
+            </div>
+            <div className="card-text">
               <div id="emailSize">
                 <div id="formText">
                   Name: <br />
@@ -63,8 +63,8 @@ function UpdateContent() {
                   placeholder="Enter Your Name"
                 />
               </div>
-            </p>
-            <p className="card-text">
+            </div>
+            <div className="card-text">
               <div id="emailSize">
                 <div id="formText">
                   Phone: <br />
@@ -76,7 +76,7 @@ function UpdateContent() {
                   placeholder="Enter Your Phone Number"
                 />
               </div>
-            </p>
+            </div>
             <div id="formText">
               {updateEmail}
               <br />

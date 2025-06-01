@@ -9,10 +9,10 @@ function WelcomeDisplay() {
     return <h3 id="formText">Welcome, {globalAccount.name}!</h3>;
   else {
     return (
-      <p id="formText">
+      <div id="formText">
         I am sorry. You are not logged in. Please Log In first at the top of the
         page. Don't have an account? Sign Up below and join us.
-      </p>
+      </div>
     );
   }
 }

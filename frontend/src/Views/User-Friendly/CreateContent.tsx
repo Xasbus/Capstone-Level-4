@@ -20,7 +20,7 @@ function CreateContent() {
           Create Function
         </h5>
         <div className="card-body">
-          <p className="card-text">
+          <div className="card-text">
             <div id="emailSize">
               <div id="formText">
                 Email: <br />
@@ -33,9 +33,9 @@ function CreateContent() {
                 placeholder="Enter Your Email"
               />
             </div>
-          </p>
+          </div>
 
-          <p className="card-text">
+          <div className="card-text">
             {/* <input name="password" type="password" /> */}
             <div id="emailSize">
               <div id="formText">
@@ -48,8 +48,8 @@ function CreateContent() {
                 placeholder="Enter Your Password"
               />
             </div>
-          </p>
-          <p className="card-text">
+          </div>
+          <div className="card-text">
             {/* <input name="name" type="text" /> */}
             <div id="emailSize">
               <div id="formText">
@@ -62,8 +62,8 @@ function CreateContent() {
                 placeholder="Enter Your Name"
               />
             </div>
-          </p>
-          <p className="card-text">
+          </div>
+          <div className="card-text">
             {/* <input name="phone" type="tel" /> */}
             <div id="emailSize">
               <div id="formText">
@@ -76,7 +76,7 @@ function CreateContent() {
                 placeholder="Enter Your Phone Number"
               />
             </div>
-          </p>
+          </div>
           {createMessage}
           <hr />
           <button type="submit" className="btn btn-primary">
