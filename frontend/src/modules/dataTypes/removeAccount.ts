@@ -1,12 +1,15 @@
 import axios from "axios";
-import { Account } from "./Account";
 import { readAccount } from "./readAccount";
+import { Account } from "./Account";
 
-export async function removeAccount(account: Account): Promise<Account> {
+export async function removeAccount(
+  account: Account
+): Promise<Account | undefined> {
   const { email, password } = account;
   if (!email || !password) return undefined;
   const existingUser = await readAccount(account);
-  if (!existingUser) return undefined;
+
+  if (!existingUser || existingUser.password !== password) return undefined;
   const url = `http://localhost:8000/remove`;
   const data = {
     email,
@@ -14,7 +17,9 @@ export async function removeAccount(account: Account): Promise<Account> {
     // name: "",
     // phone: "",
   };
+  debugger;
   const readUser = await axios.post(url, data);
   const loginData = readUser.data;
-  return loginData as Account;
+  debugger;
+  return loginData.$metadata.httpStatusCode;
 }

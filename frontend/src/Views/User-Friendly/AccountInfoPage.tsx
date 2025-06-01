@@ -24,9 +24,10 @@ export function AccountInfoPage() {
         <h1>ACCOUNT INFO PAGE</h1>
         <hr />
         <WelcomeDisplay />
-        {!isLoggedIn && <CreateContent />}
+
         {isLoggedIn && <UpdateContent />}
         {isLoggedIn && <RemoveContent />}
+        {!isLoggedIn && <CreateContent />}
         <hr />
       </main>
       <footer>

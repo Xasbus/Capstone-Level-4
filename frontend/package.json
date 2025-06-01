@@ -5,7 +5,7 @@
   "scripts": {
     "build": "npx webpack --mode=production",
     "start": "npx webpack server",
-    "test": "npx jest ./src/modules/dataTypes/updateAccount.test.ts",
+    "test": "npx jest ./src/modules/dataTypes/removeAccount.test.ts",
     "deploy": "npm run build && npm run s3-upload && npm run update-cloudfront",
     "s3-upload": "aws s3 cp ./dist/ s3://level-4-capstone/frontend/dist/ --recursive --exclude *.map",
     "update-cloudfront": "aws cloudfront create-invalidation --distribution-id E3UWD0WVFOHF8D --paths  \"/*\" "
