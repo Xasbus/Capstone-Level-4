@@ -16,7 +16,11 @@ export async function readAccount(account: Account): Promise<Account> {
   const readUser = await axios.post(readUrl, data);
   const loginData = readUser.data;
 
-  if (!loginData || !loginData.email || loginData.password !== password)
+  if (!loginData || !loginData.email || loginData.password !== password) {
     return undefined;
+  }
+
+  debugger;
+
   return loginData as Account;
 }

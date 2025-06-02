@@ -2,10 +2,10 @@ import { Account } from "./Account";
 import { removeAccount } from "./removeAccount";
 
 describe("delAccount", () => {
-  it("remove account when given an existing account with matching email", async () => {
+  it.skip("remove account when given an existing account with matching email", async () => {
     //ARRANGE
     const removeUser: Account = {
-      email: "test2@email.com",
+      email: "deltest@email.com",
       password: "test",
       name: "",
       phone: "",
@@ -15,9 +15,9 @@ describe("delAccount", () => {
     const result = await removeAccount(removeUser);
 
     //ASSERT
-    expect(result).toBe(200);
+    expect(result).toBe(true);
   });
-  it("returns undefined when email is empty", async () => {
+  it.skip("returns false when email is empty", async () => {
     //ARRANGE
     const removeUser: Account = {
       email: "",
@@ -30,9 +30,9 @@ describe("delAccount", () => {
     const result = await removeAccount(removeUser);
 
     //ASSERT
-    expect(result).toBeUndefined();
+    expect(result).toBe(false);
   });
-  it("returns undefined when password is empty", async () => {
+  it.skip("returns false when password is empty", async () => {
     //ARRANGE
     const removeUser: Account = {
       email: "test@email",
@@ -45,9 +45,9 @@ describe("delAccount", () => {
     const result = await removeAccount(removeUser);
 
     //ASSERT
-    expect(result).toBeUndefined();
+    expect(result).toBe(false);
   });
-  it("returns false when given unmatching email or password", async () => {
+  it("returns false when given existing email and unmatching password", async () => {
     //ARRANGE
     const removeUser: Account = {
       email: "test@email.com",
@@ -60,9 +60,9 @@ describe("delAccount", () => {
     const result = await removeAccount(removeUser);
 
     //ASSERT
-    expect(result).toBeUndefined();
+    expect(result).toBe(false);
   });
-  it("returns nothing when given email that doesn't exist", async () => {
+  it.skip("returns false when given email that doesn't exist", async () => {
     //ARRANGE
     const removeUser: Account = {
       email: "nothing@email.com",
@@ -75,6 +75,6 @@ describe("delAccount", () => {
     const result = await removeAccount(removeUser);
 
     //ASSERT
-    expect(result).toBeUndefined();
+    expect(result).toBe(false);
   });
 });

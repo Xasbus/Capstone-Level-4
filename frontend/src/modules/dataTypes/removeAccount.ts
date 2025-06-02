@@ -2,24 +2,27 @@ import axios from "axios";
 import { readAccount } from "./readAccount";
 import { Account } from "./Account";
 
-export async function removeAccount(
-  account: Account
-): Promise<Account | undefined> {
+export async function removeAccount(account: Account): Promise<any> {
   const { email, password } = account;
-  if (!email || !password) return undefined;
-  const existingUser = await readAccount(account);
+  if (!email || !password) return false;
 
-  if (!existingUser || existingUser.password !== password) return undefined;
+  const existingUser = await readAccount(account);
+  debugger;
+  if (!existingUser || existingUser.password !== password) return false;
+  debugger;
+  console.log("Account not found or incorrect password");
+
   const url = `http://localhost:8000/remove`;
   const data = {
     email,
     password,
-    // name: "",
-    // phone: "",
   };
+  const response = await axios.post(url, data);
+
+  const loginData = response.data;
   debugger;
-  const readUser = await axios.post(url, data);
-  const loginData = readUser.data;
+  if (loginData.password !== password) return false;
   debugger;
-  return loginData.$metadata.httpStatusCode;
+  if (loginData === "OK") return true;
+  debugger;
 }
