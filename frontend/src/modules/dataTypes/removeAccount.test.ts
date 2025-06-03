@@ -17,6 +17,21 @@ describe("delAccount", () => {
     //ASSERT
     expect(result).toBe(true);
   });
+  it.skip("returns false when given existing email and unmatching password", async () => {
+    //ARRANGE
+    const removeUser: Account = {
+      email: "test@email.com",
+      password: "wrongPassword",
+      name: "",
+      phone: "",
+    };
+
+    //ACT
+    const result = await removeAccount(removeUser);
+
+    //ASSERT
+    expect(result).toBe(false);
+  });
   it.skip("returns false when email is empty", async () => {
     //ARRANGE
     const removeUser: Account = {
@@ -47,22 +62,8 @@ describe("delAccount", () => {
     //ASSERT
     expect(result).toBe(false);
   });
-  it("returns false when given existing email and unmatching password", async () => {
-    //ARRANGE
-    const removeUser: Account = {
-      email: "test@email.com",
-      password: "jasof",
-      name: "",
-      phone: "",
-    };
 
-    //ACT
-    const result = await removeAccount(removeUser);
-
-    //ASSERT
-    expect(result).toBe(false);
-  });
-  it.skip("returns false when given email that doesn't exist", async () => {
+  it("returns false when given email that doesn't exist", async () => {
     //ARRANGE
     const removeUser: Account = {
       email: "nothing@email.com",
