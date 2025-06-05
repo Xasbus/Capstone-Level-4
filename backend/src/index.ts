@@ -1,4 +1,4 @@
-import express from "express";
+import express, { json, urlencoded } from "express";
 import cors from "cors";
 import { root } from "./routes/root";
 import { api } from "./routes/api";
@@ -13,7 +13,11 @@ const port = 8000; // common backend ports: 8000, 9000, 3000
 const path = "/"; // The path where server info will be rendered in a browser
 
 const app = express(); // instantiate the Express.js  onject
+
 app.use(cors());
+app.use(json()); // For JSON data used by Axios.
+app.use(urlencoded({ extended: true })); // For URL-encoded data
+
 app.get("/", root);
 app.get("/api", api);
 app.get(path, root); // This handler is to handle things that go through this path
