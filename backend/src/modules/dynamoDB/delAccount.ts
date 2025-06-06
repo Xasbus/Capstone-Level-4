@@ -6,21 +6,19 @@ import { dynamoClient } from "./dynamoClient";
 
 dotenv.config();
 
-export async function delAccount(account: Account): Promise<number | boolean> {
+export async function delAccount(account: Account): Promise<boolean> {
   const { email, password, name, phone } = account;
   if (!email || !password) return false;
 
-  const existingUser = await readAccount(account);
+  const userInfo = await readAccount(account);
+  if (!userInfo || userInfo !== true) return false;
 
-  if (!existingUser || existingUser.password !== password) return false;
-  debugger;
   const niceClient = dynamoClient();
-
   const request: DeleteCommandInput = {
     TableName: "logins",
     Key: { email: email },
   };
 
   const response = await niceClient.delete(request);
-  return response.$metadata.httpStatusCode;
+  return true;
 }

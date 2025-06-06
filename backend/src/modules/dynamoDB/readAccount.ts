@@ -26,6 +26,6 @@ export async function readAccount(account: Account): Promise<object | boolean> {
     return false;
   }
   if (loginData) {
-    return { email, password, name, phone };
+    return true;
   }
 }

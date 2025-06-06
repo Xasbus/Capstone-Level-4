@@ -2,11 +2,11 @@ import { Account } from "./DataType/Account";
 import { delAccount } from "./delAccount";
 
 describe("delAccount", () => {
-  it.skip("remove account when given an existing account", async () => {
+  it("remove account when given an existing account", async () => {
     //ARRANGE
     const removeUser: Account = {
       email: "test2@email.com",
-      password: "test2",
+      password: "test",
       name: "",
       phone: "",
     };
@@ -15,9 +15,9 @@ describe("delAccount", () => {
     const result = await delAccount(removeUser);
 
     //ASSERT
-    expect(result).toBe(200);
+    expect(result).toBe(true);
   });
-  it.skip("returns false when email is empty", async () => {
+  it("returns false when email is empty", async () => {
     //ARRANGE
     const removeUser: Account = {
       email: "",
@@ -32,7 +32,7 @@ describe("delAccount", () => {
     //ASSERT
     expect(result).toBe(false);
   });
-  it.skip("returns false when password is empty", async () => {
+  it("returns false when password is empty", async () => {
     //ARRANGE
     const removeUser: Account = {
       email: "test@email",
