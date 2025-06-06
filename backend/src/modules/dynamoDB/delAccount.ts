@@ -6,15 +6,14 @@ import { dynamoClient } from "./dynamoClient";
 
 dotenv.config();
 
-export async function delAccount(
-  account: Account
-): Promise<number | undefined> {
+export async function delAccount(account: Account): Promise<number | boolean> {
   const { email, password, name, phone } = account;
-  if (!email || !password) return undefined;
+  if (!email || !password) return false;
+
   const existingUser = await readAccount(account);
 
-  if (!existingUser || existingUser.password !== password) return undefined;
-
+  if (!existingUser || existingUser.password !== password) return false;
+  debugger;
   const niceClient = dynamoClient();
 
   const request: DeleteCommandInput = {
