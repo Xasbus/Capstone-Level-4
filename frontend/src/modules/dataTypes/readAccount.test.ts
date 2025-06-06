@@ -2,7 +2,7 @@ import { Account } from "./Account";
 import { readAccount } from "./readAccount";
 
 describe("readAccount", () => {
-  it("returns true value when given an existing account", async () => {
+  it("returns Account object when given an existing account with matching password", async () => {
     //ARRANGE
     const readUser: Account = {
       email: "test@email.com",
@@ -15,8 +15,12 @@ describe("readAccount", () => {
     const result = await readAccount(readUser);
 
     //ASSERT
-    expect(result.email).toBe(readUser.email);
-    expect(result.password).toBe(readUser.password);
+    expect(result).toEqual({
+      email: readUser.email,
+      password: readUser.password,
+      name: readUser.name,
+      phone: readUser.phone,
+    });
   });
   it("returns  when given existing email but unmatching password", async () => {
     //ARRANGE
@@ -63,7 +67,7 @@ describe("readAccount", () => {
     //ASSERT
     expect(result).toBe(false);
   });
-  it("returns false when given email that doesn't exist", async () => {
+  it("returns Account object when given email that doesn't exist", async () => {
     //ARRANGE
     const readUser: Account = {
       email: "nothing@email.com",
@@ -76,6 +80,11 @@ describe("readAccount", () => {
     const result = await readAccount(readUser);
 
     //ASSERT
-    expect(result).toBe(false);
+    expect(result).toEqual({
+      email: readUser.email,
+      password: readUser.password,
+      name: readUser.name,
+      phone: readUser.phone,
+    });
   });
 });

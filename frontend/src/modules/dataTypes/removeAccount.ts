@@ -6,9 +6,8 @@ export async function removeAccount(account: Account): Promise<boolean> {
   const { email, password } = account;
   if (!email || !password) return false;
 
-  const existingUser = await readAccount(account);
-
-  if (existingUser === false) return false;
+  const userInfo = await readAccount(account);
+  if (userInfo === false) return false;
 
   const url = `http://localhost:8000/remove`;
   const data = {

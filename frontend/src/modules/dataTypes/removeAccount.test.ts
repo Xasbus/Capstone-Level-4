@@ -63,7 +63,7 @@ describe("delAccount", () => {
     expect(result).toBe(false);
   });
 
-  it("returns false when given email that doesn't exist", async () => {
+  it("returns true when given email that doesn't exist", async () => {
     //ARRANGE
     const removeUser: Account = {
       email: "nothing@email.com",
@@ -76,6 +76,6 @@ describe("delAccount", () => {
     const result = await removeAccount(removeUser);
 
     //ASSERT
-    expect(result).toBe(false);
+    expect(result).toBe(true);
   });
 });

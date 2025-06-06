@@ -4,15 +4,15 @@ import { Account } from "./Account";
 export async function readAccount(
   account: Account
 ): Promise<boolean | Account> {
-  let { email, password } = account;
+  let { email, password, name, phone } = account;
 
   if (!email || !password) return false;
   const readUrl = "http://localhost:8000/read";
   const data = {
     email,
     password,
-    // name: "",
-    // phone: "",
+    name,
+    phone,
   };
   const readUser = await axios.post(readUrl, data);
   const loginData = readUser.data;
