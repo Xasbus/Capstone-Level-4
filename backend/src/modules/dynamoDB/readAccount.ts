@@ -19,6 +19,7 @@ export async function readAccount(account: Account): Promise<object | boolean> {
 
   const response = await niceClient.get(request); // sending the request using the get method
   const loginData = response.Item;
+
   if (!loginData) {
     return { email, password, name, phone };
   }

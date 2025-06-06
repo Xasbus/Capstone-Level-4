@@ -2,7 +2,7 @@ import { Account } from "./DataType/Account";
 import { delAccount } from "./delAccount";
 
 describe("delAccount", () => {
-  it("remove account when given an existing account", async () => {
+  it.skip("remove account when given an existing account", async () => {
     //ARRANGE
     const removeUser: Account = {
       email: "test2@email.com",

@@ -15,12 +15,7 @@ describe("readAccount", () => {
     const result = await readAccount(readUser);
 
     //ASSERT
-    expect(result).toEqual({
-      email: readUser.email,
-      password: readUser.password,
-      name: readUser.name,
-      phone: readUser.phone,
-    });
+    expect(result).toBe(true);
   });
   it("returns false when given existing email, but empty password", async () => {
     //ARRANGE

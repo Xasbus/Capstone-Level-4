@@ -3,7 +3,7 @@ import { Account } from "./DataType/Account";
 import { delAccount } from "./delAccount";
 
 describe("createAccount", () => {
-  it("add new email and password into logins table when given new email", async () => {
+  it("add new account into logins table and receive true when given new email", async () => {
     //ARRANGE
     const createUser: Account = {
       email: "new@email.com",
@@ -16,8 +16,7 @@ describe("createAccount", () => {
     const result = await createAccount(createUser);
 
     //ASSERT
-    expect(result).toHaveProperty("email");
-    expect(result).toHaveProperty("password");
+    expect(result).toBe(true);
 
     //CLEAN
     await delAccount(createUser);
@@ -53,7 +52,7 @@ describe("createAccount", () => {
     //ASSERT
     expect(result).toBe(false);
   });
-  it("returns false when given empty password with existing account", async () => {
+  it("returns false when given empty password with existing email", async () => {
     //ARRANGE
     const createUser: Account = {
       email: "test@email.com",
@@ -72,7 +71,7 @@ describe("createAccount", () => {
     //ARRANGE
     const createUser: Account = {
       email: "test@email.com",
-      password: "CREATEPassword",
+      password: "wrongPassword",
       name: "",
       phone: "",
     };

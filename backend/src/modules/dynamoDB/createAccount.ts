@@ -13,20 +13,15 @@ export async function createAccount(
 
   if (!email || !password) return false;
   const existingUser = await readAccount(account);
-  debugger;
-  if (existingUser) return false;
+  if (existingUser === true || existingUser === false) return false;
 
   const niceClient = dynamoClient();
-
   const request: PutCommandInput = {
     TableName: "logins",
     Item: { email: email, password: password, name: name, phone: phone },
   };
-  debugger;
+
   const response = await niceClient.put(request); // sending the request using the put method
-  debugger;
   const newUser = await readAccount(account);
-  debugger;
-  console.log(newUser);
   return newUser;
 }
