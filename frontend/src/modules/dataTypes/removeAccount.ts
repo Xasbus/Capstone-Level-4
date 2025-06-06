@@ -8,7 +8,7 @@ export async function removeAccount(account: Account): Promise<boolean> {
 
   const existingUser = await readAccount(account);
 
-  // if (existingUser === false) return false;
+  if (existingUser === false) return false;
 
   const url = `http://localhost:8000/remove`;
   const data = {
@@ -16,9 +16,8 @@ export async function removeAccount(account: Account): Promise<boolean> {
     password,
   };
   const response = await axios.post(url, data);
-  debugger;
   const loginData = response.data;
 
-  if (loginData.password !== password) return false;
   if (loginData === "OK") return true;
+  else return false;
 }

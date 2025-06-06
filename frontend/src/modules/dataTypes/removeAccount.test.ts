@@ -2,7 +2,7 @@ import { Account } from "./Account";
 import { removeAccount } from "./removeAccount";
 
 describe("delAccount", () => {
-  it.skip("remove account when given an existing account with matching email", async () => {
+  it("remove account when given an existing account with matching email", async () => {
     //ARRANGE
     const removeUser: Account = {
       email: "deltest@email.com",
@@ -17,7 +17,7 @@ describe("delAccount", () => {
     //ASSERT
     expect(result).toBe(true);
   });
-  it.skip("returns false when given existing email and unmatching password", async () => {
+  it("returns false when given existing email and unmatching password", async () => {
     //ARRANGE
     const removeUser: Account = {
       email: "test@email.com",
@@ -32,7 +32,7 @@ describe("delAccount", () => {
     //ASSERT
     expect(result).toBe(false);
   });
-  it.skip("returns false when email is empty", async () => {
+  it("returns false when email is empty", async () => {
     //ARRANGE
     const removeUser: Account = {
       email: "",
@@ -47,7 +47,7 @@ describe("delAccount", () => {
     //ASSERT
     expect(result).toBe(false);
   });
-  it.skip("returns false when password is empty", async () => {
+  it("returns false when password is empty", async () => {
     //ARRANGE
     const removeUser: Account = {
       email: "test@email",
