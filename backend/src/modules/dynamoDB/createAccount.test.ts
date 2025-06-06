@@ -3,7 +3,7 @@ import { Account } from "./DataType/Account";
 import { delAccount } from "./delAccount";
 
 describe("createAccount", () => {
-  it("add new email and password into logins table", async () => {
+  it("add new email and password into logins table when given new email", async () => {
     //ARRANGE
     const createUser: Account = {
       email: "new@email.com",
@@ -23,7 +23,7 @@ describe("createAccount", () => {
     await delAccount(createUser);
   });
 
-  it("returns error when given existing email", async () => {
+  it("returns false when given existing email", async () => {
     //ARRANGE
     const createUser: Account = {
       email: "test@email.com",
@@ -36,9 +36,9 @@ describe("createAccount", () => {
     const result = await createAccount(createUser);
 
     //ASSERT
-    expect(result).toBeUndefined();
+    expect(result).toBe(false);
   });
-  it("returns undefined when given empty email", async () => {
+  it("returns false when given empty email", async () => {
     //ARRANGE
     const createUser: Account = {
       email: "",
@@ -51,9 +51,9 @@ describe("createAccount", () => {
     const result = await createAccount(createUser);
 
     //ASSERT
-    expect(result).toBeUndefined();
+    expect(result).toBe(false);
   });
-  it("returns error when given empty password", async () => {
+  it("returns false when given empty password with existing account", async () => {
     //ARRANGE
     const createUser: Account = {
       email: "test@email.com",
@@ -66,9 +66,9 @@ describe("createAccount", () => {
     const result = await createAccount(createUser);
 
     //ASSERT
-    expect(result).toBeUndefined();
+    expect(result).toBe(false);
   });
-  it("returns error when given email already exists but password doesn't match", async () => {
+  it("returns false when given email already exists but password doesn't match", async () => {
     //ARRANGE
     const createUser: Account = {
       email: "test@email.com",
@@ -81,6 +81,6 @@ describe("createAccount", () => {
     const result = await createAccount(createUser);
 
     //ASSERT
-    expect(result).toBeUndefined();
+    expect(result).toBe(false);
   });
 });

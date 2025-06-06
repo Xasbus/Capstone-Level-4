@@ -8,12 +8,12 @@ dotenv.config();
 
 export async function createAccount(
   account: Account
-): Promise<object | undefined> {
+): Promise<object | boolean> {
   const { email, password, name, phone } = account;
 
-  if (!email || !password) return undefined;
+  if (!email || !password) return false;
   const existingUser = await readAccount(account);
-  if (existingUser) return undefined;
+  if (existingUser) return false;
 
   const niceClient = dynamoClient();
 
