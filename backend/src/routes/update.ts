@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { Account } from "../modules/Types/Account";
 import { updateAccount } from "../modules/dynamoDB/updateAccount";
+import { Account } from "../modules/dynamoDB/DataType/Account";
 
 export async function update(request: Request, response: Response) {
   const account: Account = request.body;

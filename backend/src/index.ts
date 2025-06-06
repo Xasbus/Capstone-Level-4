@@ -28,7 +28,15 @@ app.get("/api", api);
 app.get(path, root); // This handler is to handle things that go through this path
 app.get("/env", env);
 // app.get("/crud", crud);
-app.post("/read", read);
+// app.post("/read", read);
+app.post(
+  "/read",
+  (req, res, next) => {
+    console.log("Incoming request received:", req.method, req.url, req.body);
+    next();
+  },
+  read
+);
 app.post("/create", create);
 app.post("/remove", remove);
 app.post("/update", update);
