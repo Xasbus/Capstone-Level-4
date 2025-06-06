@@ -2,7 +2,7 @@ import { PutCommandInput } from "@aws-sdk/lib-dynamodb";
 import dotenv from "dotenv";
 import { readAccount } from "./readAccount";
 import { Account } from "./DataType/Account";
-import { dynamoClient } from "./DynamoClient";
+import { dynamoClient } from "./dynamoClient";
 
 dotenv.config();
 
@@ -13,6 +13,7 @@ export async function createAccount(
 
   if (!email || !password) return false;
   const existingUser = await readAccount(account);
+  debugger;
   if (existingUser) return false;
 
   const niceClient = dynamoClient();
@@ -21,10 +22,11 @@ export async function createAccount(
     TableName: "logins",
     Item: { email: email, password: password, name: name, phone: phone },
   };
-
+  debugger;
   const response = await niceClient.put(request); // sending the request using the put method
-
+  debugger;
   const newUser = await readAccount(account);
+  debugger;
   console.log(newUser);
   return newUser;
 }

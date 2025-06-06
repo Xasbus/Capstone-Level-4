@@ -72,7 +72,7 @@ describe("createAccount", () => {
     //ARRANGE
     const createUser: Account = {
       email: "test@email.com",
-      password: "wrongPassword",
+      password: "CREATEPassword",
       name: "",
       phone: "",
     };

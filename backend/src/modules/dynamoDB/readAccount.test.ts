@@ -2,7 +2,7 @@ import { Account } from "./DataType/Account";
 import { readAccount } from "./readAccount";
 
 describe("readAccount", () => {
-  it("returns true value when given an existing account", async () => {
+  it("returns account value when given an existing account", async () => {
     //ARRANGE
     const readUser: Account = {
       email: "test@email.com",
@@ -15,9 +15,14 @@ describe("readAccount", () => {
     const result = await readAccount(readUser);
 
     //ASSERT
-    expect(result.email).toBe(readUser.email);
+    expect(result).toEqual({
+      email: readUser.email,
+      password: readUser.password,
+      name: readUser.name,
+      phone: readUser.phone,
+    });
   });
-  it("returns undefined when given existing email, but empty password", async () => {
+  it("returns false when given existing email, but empty password", async () => {
     //ARRANGE
     const readUser: Account = {
       email: "test@email.com",
@@ -30,9 +35,9 @@ describe("readAccount", () => {
     const result = await readAccount(readUser);
 
     //ASSERT
-    expect(result).toBeUndefined();
+    expect(result).toBe(false);
   });
-  it("returns nothing when given empty email even if password exists", async () => {
+  it("returns false when given empty email even if password exists", async () => {
     //ARRANGE
     const readUser: Account = {
       email: "",
@@ -45,13 +50,13 @@ describe("readAccount", () => {
     const result = await readAccount(readUser);
 
     //ASSERT
-    expect(result).toBeUndefined();
+    expect(result).toBe(false);
   });
-  it("returns nothing when given existing email but unmatching password", async () => {
+  it("returns account info when given existing email but unmatching password", async () => {
     //ARRANGE
     const readUser: Account = {
       email: "test@email.com",
-      password: "wrongPassword",
+      password: "ReadPassword",
       name: "",
       phone: "",
     };
@@ -60,9 +65,14 @@ describe("readAccount", () => {
     const result = await readAccount(readUser);
 
     //ASSERT
-    expect(result).toBeUndefined();
+    expect(result).toEqual({
+      email: readUser.email,
+      password: readUser.password,
+      name: readUser.name,
+      phone: readUser.phone,
+    });
   });
-  it("returns nothing when given email that doesn't exist", async () => {
+  it("returns Account object when given email that doesn't exist", async () => {
     //ARRANGE
     const readUser: Account = {
       email: "nothing@email.com",
@@ -75,6 +85,11 @@ describe("readAccount", () => {
     const result = await readAccount(readUser);
 
     //ASSERT
-    expect(result).toBeUndefined();
+    expect(result).toEqual({
+      email: readUser.email,
+      password: readUser.password,
+      name: readUser.name,
+      phone: readUser.phone,
+    });
   });
 });

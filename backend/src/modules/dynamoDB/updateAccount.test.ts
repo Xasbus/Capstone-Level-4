@@ -67,7 +67,7 @@ describe("updateAccount", () => {
     //ARRANGE
     const updateUser: Account = {
       email: "test@email.com",
-      password: "wrongPassword",
+      password: "UPDATEPassword",
       name: "Amy",
       phone: "5550931234",
     };
