@@ -1,27 +1,39 @@
 import axios from "axios";
 import { Account } from "./Account";
-import { readAccount } from "./readAccount";
+import { databaseUrl } from "../../utils/databaseUrl";
 
 export async function createAccount(
   account: Account
-): Promise<Account | boolean> {
+): Promise<boolean | Account> {
   const { email, password, name, phone } = account;
-  if (!email || !password) return false;
-  const existingUser = await readAccount(account);
-  if (existingUser) return false;
-  debugger;
 
-  const url = `http://localhost:8000/create`;
-  const data = {
+  if (!email || !password) return false;
+
+  const readUrl = "http://localhost:8000/create";
+  const data1 = {
     email,
     password,
     name,
     phone,
   };
-  debugger;
-  const createUser = await axios.post(url, data);
-  debugger;
-  const loginData = createUser.data;
-  debugger;
-  return loginData as Account;
+  const response1 = await axios.post(readUrl, data1);
+  const existingUser = response1.data;
+  if (existingUser) return false;
+  // const existingUser = await readAccount(account);
+  // if (existingUser === false) return false;
+  // if (existingUser) return false;
+
+  const url = "http://localhost:8000/create";
+  // const url: any = databaseUrl();
+  const data2 = {
+    email,
+    password,
+    name,
+    phone,
+  };
+
+  const response = await axios.post(url, data2);
+  const loginData: Account = response.data;
+
+  return loginData;
 }

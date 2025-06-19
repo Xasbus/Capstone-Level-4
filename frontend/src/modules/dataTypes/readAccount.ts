@@ -1,5 +1,6 @@
 import axios from "axios";
 import { Account } from "./Account";
+import { databaseUrl } from "../../utils/databaseUrl";
 
 export async function readAccount(
   account: Account
@@ -7,6 +8,7 @@ export async function readAccount(
   let { email, password, name, phone } = account;
 
   if (!email || !password) return false;
+  // const readUrl: any = databaseUrl();
   const readUrl = "http://localhost:8000/read";
   const data = {
     email,
@@ -17,6 +19,7 @@ export async function readAccount(
   const readUser = await axios.post(readUrl, data);
   const loginData = readUser.data;
 
+  if (!loginData) return false;
   if (loginData.password !== password || loginData === "") {
     return false;
   } else return loginData;
