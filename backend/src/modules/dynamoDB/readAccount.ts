@@ -9,7 +9,6 @@ export async function readAccount(account: Account): Promise<object | boolean> {
   // const { email } = account;
   const { email, password, name, phone } = account;
 
-  // if (!email) return false;
   if (!email || !password) return false;
 
   const niceClient = dynamoClient();
