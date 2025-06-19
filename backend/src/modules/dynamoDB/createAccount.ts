@@ -1,6 +1,5 @@
-import { PutCommandInput } from "@aws-sdk/lib-dynamodb";
+import { GetCommandInput, PutCommandInput } from "@aws-sdk/lib-dynamodb";
 import dotenv from "dotenv";
-import { readAccount } from "./readAccount";
 import { Account } from "./DataType/Account";
 import { dynamoClient } from "./dynamoClient";
 
@@ -12,16 +11,26 @@ export async function createAccount(
   const { email, password, name, phone } = account;
 
   if (!email || !password) return false;
-  const existingUser = await readAccount(account);
-  if (existingUser === true || existingUser === false) return false;
+  // const existingUser = await readAccount(account);
 
   const niceClient = dynamoClient();
-  const request: PutCommandInput = {
+  const request1: GetCommandInput = {
     TableName: "logins",
-    Item: { email: email, password: password, name: name, phone: phone },
+    Key: { email: email },
   };
 
-  const response = await niceClient.put(request); // sending the request using the put method
-  const newUser = await readAccount(account);
-  return newUser;
+  const response1 = await niceClient.get(request1);
+  const existingUser = response1.Item;
+
+  if (existingUser) return false;
+
+  const request2: PutCommandInput = {
+    TableName: "logins",
+    Item: { email, password, name, phone },
+  };
+
+  const response2 = await niceClient.put(request2); // sending the request using the put method
+  const isSuccessful = response2.$metadata.httpStatusCode === 200;
+  if (isSuccessful) return account;
+  else return false;
 }

@@ -11,7 +11,7 @@ export async function delAccount(account: Account): Promise<boolean> {
   if (!email || !password) return false;
 
   const userInfo = await readAccount(account);
-  if (!userInfo || userInfo !== true) return false;
+  if (!userInfo) return false;
 
   const niceClient = dynamoClient();
   const request: DeleteCommandInput = {
@@ -20,5 +20,6 @@ export async function delAccount(account: Account): Promise<boolean> {
   };
 
   const response = await niceClient.delete(request);
-  return true;
+  const isSuccessful = response.$metadata.httpStatusCode === 200;
+  return isSuccessful;
 }

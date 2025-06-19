@@ -31,7 +31,6 @@ export async function updateAccount(
       },
     };
 
-    console.log(`LOG UPDATE: ${name}, ${phone}`);
     const response = await niceClient.update(request); // changing to update allows us to see what is needed to assert the request object
 
     const newInfo = await readAccount(account);

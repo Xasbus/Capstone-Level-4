@@ -2,6 +2,8 @@ import { createAccount } from "./createAccount";
 import { Account } from "./DataType/Account";
 import { delAccount } from "./delAccount";
 
+jest.setTimeout(30000);
+
 describe("createAccount", () => {
   it("add new account into logins table and receive true when given new email", async () => {
     //ARRANGE
@@ -16,8 +18,12 @@ describe("createAccount", () => {
     const result = await createAccount(createUser);
 
     //ASSERT
-    expect(result).toBe(true);
-
+    expect(result).toEqual({
+      email: createUser.email,
+      password: createUser.password,
+      name: createUser.name,
+      phone: createUser.phone,
+    });
     //CLEAN
     await delAccount(createUser);
   });

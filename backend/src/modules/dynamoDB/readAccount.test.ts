@@ -62,7 +62,7 @@ describe("readAccount", () => {
     //ASSERT
     expect(result).toEqual(false);
   });
-  it("returns Account object when given email that doesn't exist", async () => {
+  it("returns false when given email that doesn't exist", async () => {
     //ARRANGE
     const readUser: Account = {
       email: "nothing@email.com",
@@ -75,11 +75,6 @@ describe("readAccount", () => {
     const result = await readAccount(readUser);
 
     //ASSERT
-    expect(result).toEqual({
-      email: readUser.email,
-      password: readUser.password,
-      name: readUser.name,
-      phone: readUser.phone,
-    });
+    expect(result).toBe(false);
   });
 });

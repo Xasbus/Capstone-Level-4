@@ -32,12 +32,19 @@ app.get("/env", env);
 app.post(
   "/read",
   (req, res, next) => {
-    console.log("Incoming request received:", req.method, req.url, req.body);
+    // console.log("Incoming request received:", req.method, req.url, req.body);
     next();
   },
   read
 );
-app.post("/create", create);
+app.post(
+  "/create",
+  (req, res, next) => {
+    // console.log("Incoming request received:", req.method, req.url, req.body);
+    next();
+  },
+  create
+);
 app.post("/remove", remove);
 app.post("/update", update);
 app.get("/question", apiQuestion);
