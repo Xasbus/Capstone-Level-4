@@ -29,7 +29,7 @@ describe("createAccount", () => {
     // await removeAccount(createUser);
   });
 
-  it.skip("returns false when given existing email with matching password", async () => {
+  it("returns false when given existing email with matching password", async () => {
     //ARRANGE
     const createUser: Account = {
       email: "test@email.com",
@@ -44,7 +44,7 @@ describe("createAccount", () => {
     //ASSERT
     expect(result).toBe(false);
   });
-  it.skip("returns false when given empty email", async () => {
+  it("returns false when given empty email", async () => {
     //ARRANGE
     const createUser: Account = {
       email: "",
@@ -59,7 +59,7 @@ describe("createAccount", () => {
     //ASSERT
     expect(result).toBe(false);
   });
-  it.skip("returns false when given existing email, but password is empty", async () => {
+  it("returns false when given existing email, but password is empty", async () => {
     //ARRANGE
     const createUser: Account = {
       email: "test@email.com",
@@ -74,7 +74,7 @@ describe("createAccount", () => {
     //ASSERT
     expect(result).toBe(false);
   });
-  it.skip("returns false when given existing email but password doesn't match", async () => {
+  it("returns false when given existing email but password doesn't match", async () => {
     //ARRANGE
     const createUser: Account = {
       email: "test@email.com",

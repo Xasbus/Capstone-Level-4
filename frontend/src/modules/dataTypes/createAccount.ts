@@ -19,9 +19,6 @@ export async function createAccount(
   const response1 = await axios.post(readUrl, data1);
   const existingUser = response1.data;
   if (existingUser) return false;
-  // const existingUser = await readAccount(account);
-  // if (existingUser === false) return false;
-  // if (existingUser) return false;
 
   const url = "http://localhost:8000/create";
   // const url: any = databaseUrl();
@@ -34,6 +31,5 @@ export async function createAccount(
 
   const response = await axios.post(url, data2);
   const loginData: Account = response.data;
-
-  return loginData;
+  if (!loginData) return data2 as Account;
 }
