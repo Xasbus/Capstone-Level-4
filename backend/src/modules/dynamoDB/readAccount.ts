@@ -23,8 +23,4 @@ export async function readAccount(account: Account): Promise<object | boolean> {
   // console.log("DynamoDB lookup result:", loginData);
   if (!loginData || loginData.password !== password) return false;
   else return loginData;
-
-  // if (loginData.password !== password) {
-  //   return false;
-  // }
 }
