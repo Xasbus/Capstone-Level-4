@@ -1,6 +1,7 @@
 import axios from "axios";
 import { Account } from "./Account";
 import { readAccount } from "./readAccount";
+import { databaseUrl } from "../../utils/databaseUrl";
 
 export async function updateAccount(
   account: Account
@@ -10,7 +11,8 @@ export async function updateAccount(
   const existingUser = await readAccount(account);
   if (!existingUser || existingUser.password !== password) return false;
 
-  const url = `http://localhost:8000/update`;
+  // const url = `http://localhost:8000/update`;
+  const url: any = databaseUrl();
   const data = {
     email,
     password,

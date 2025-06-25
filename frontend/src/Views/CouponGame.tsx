@@ -19,12 +19,12 @@ export function CouponGame() {
     const response = await axios.get(url);
     const rawJsonString = JSON.stringify(response.data);
     const parsedData = JSON.parse(rawJsonString);
-    debugger;
+
     const { answer, choices, question } = parsedData;
     const correctAnswer = question.correct_answer;
     const incorrectAnswer = question.incorrect_answers;
     const gameQuestion = question.question;
-    debugger;
+
     setQuestion(
       `Your question is .... ${gameQuestion}??  ${incorrectAnswer},${correctAnswer}`
     );

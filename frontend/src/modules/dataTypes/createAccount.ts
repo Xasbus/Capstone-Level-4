@@ -20,8 +20,8 @@ export async function createAccount(
   const existingUser = response1.data;
   if (existingUser) return false;
 
-  const url = "http://localhost:8000/create";
-  // const url: any = databaseUrl();
+  // const url = "http://localhost:8000/create";
+  const url: any = databaseUrl();
   const data2 = {
     email,
     password,

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { readAccount } from "./readAccount";
 import { Account } from "./Account";
+import { databaseUrl } from "../../utils/databaseUrl";
 
 export async function removeAccount(account: Account): Promise<boolean> {
   const { email, password } = account;
@@ -9,7 +10,8 @@ export async function removeAccount(account: Account): Promise<boolean> {
   const userInfo = await readAccount(account);
   if (userInfo === false) return false;
 
-  const url = `http://localhost:8000/remove`;
+  // const url = `http://localhost:8000/remove`;
+  const readUrl: any = databaseUrl();
   const data = {
     email,
     password,
