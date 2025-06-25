@@ -2,11 +2,13 @@ import axios from "axios";
 import { Account } from "./Account";
 import { readAccount } from "./readAccount";
 
-export async function updateAccount(account: Account): Promise<Account> {
+export async function updateAccount(
+  account: Account
+): Promise<Account | boolean> {
   const { email, password, name, phone } = account;
-  if (!email || !password) return undefined;
+  if (!email || !password) return false;
   const existingUser = await readAccount(account);
-  if (!existingUser || existingUser.password !== password) return undefined;
+  if (!existingUser || existingUser.password !== password) return false;
 
   const url = `http://localhost:8000/update`;
   const data = {

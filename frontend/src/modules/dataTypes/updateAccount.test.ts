@@ -7,7 +7,7 @@ describe("updateAccount", () => {
     const updateUser: Account = {
       email: "test@email.com",
       password: "test",
-      name: "Sarah",
+      name: "Joe",
       phone: "5552652987",
     };
 
@@ -15,7 +15,12 @@ describe("updateAccount", () => {
     const result = await updateAccount(updateUser);
 
     //ASSERT
-    expect(result).toBeDefined();
+    expect(result).toEqual({
+      email: updateUser.email,
+      password: updateUser.password,
+      name: updateUser.name,
+      phone: updateUser.phone,
+    });
   });
   it("returns error when given nonexisting email", async () => {
     //ARRANGE
@@ -30,7 +35,7 @@ describe("updateAccount", () => {
     const result = await updateAccount(updateUser);
 
     //ASSERT
-    expect(result).toBeUndefined();
+    expect(result).toBe(false);
   });
   it("returns undefined when given empty email", async () => {
     //ARRANGE
@@ -45,7 +50,7 @@ describe("updateAccount", () => {
     const result = await updateAccount(updateUser);
 
     //ASSERT
-    expect(result).toBeUndefined();
+    expect(result).toBe(false);
   });
   it("returns error when given empty password", async () => {
     //ARRANGE
@@ -60,7 +65,7 @@ describe("updateAccount", () => {
     const result = await updateAccount(updateUser);
 
     //ASSERT
-    expect(result).toBeUndefined();
+    expect(result).toBe(false);
   });
   it("returns error when given email already exists but password doesn't match", async () => {
     //ARRANGE
@@ -75,6 +80,6 @@ describe("updateAccount", () => {
     const result = await updateAccount(updateUser);
 
     //ASSERT
-    expect(result).toBeUndefined();
+    expect(result).toBe(false);
   });
 });
