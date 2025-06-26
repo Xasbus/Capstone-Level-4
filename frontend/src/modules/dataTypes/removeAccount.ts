@@ -11,7 +11,7 @@ export async function removeAccount(account: Account): Promise<boolean> {
   if (userInfo === false) return false;
 
   // const url = `http://localhost:8000/remove`;
-  const readUrl: any = databaseUrl();
+  const url: any = databaseUrl();
   const data = {
     email,
     password,
