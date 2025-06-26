@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { databaseUrl } from "../utils/databaseUrl";
 
 export function CouponGame() {
   const [question, setQuestion] = useState("");
@@ -11,7 +12,8 @@ export function CouponGame() {
   );
 
   async function handleCoupon() {
-    const baseUrl = "http://localhost:8000";
+    // const baseUrl = "http://localhost:8000";
+    const baseUrl = databaseUrl();
     const path = "/question";
     const query = "?amount=2&category=15&type=multiple";
     const url = baseUrl + path + query;
