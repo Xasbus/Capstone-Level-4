@@ -9,7 +9,8 @@ export async function createAccount(
 
   if (!email || !password) return false;
 
-  const readUrl = "http://localhost:8000/create";
+  // const readUrl = "http://localhost:8000/create";
+  const readUrl = databaseUrl();
   const data1 = {
     email,
     password,

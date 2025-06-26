@@ -9,8 +9,8 @@ export async function readAccount(
 
   if (!email || !password) return false;
 
-  const readUrl: any = databaseUrl();
-  // const readUrl = "http://localhost:8000/read";
+  // const readUrl: any = databaseUrl();
+  const readUrl = "http://localhost:8000/read";
 
   const data = {
     email,

@@ -3,10 +3,12 @@ import { set } from "../modules/Redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import { getAnswer } from "../modules/getAnswer";
 import { selectGlobalAnswer } from "../modules/Redux/stateSelector";
+import { aiUrl } from "../utils/aiUrl";
 
 export function Ai() {
   const answer = useSelector(selectGlobalAnswer);
   const dispatch = useDispatch();
+  aiUrl();
   return (
     <div>
       <form onSubmit={handleSubmit}>

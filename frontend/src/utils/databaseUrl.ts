@@ -6,7 +6,7 @@ export function databaseUrl() {
 
   let baseUrl: string;
 
-  if (domain.includes("localhost")) {
+  if (domain === "localhost") {
     baseUrl = localPort;
   } else {
     baseUrl = deployedUrl;
