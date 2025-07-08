@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectConsolesDidMount } from "../modules/Redux/stateSelector";
 import { set } from "../modules/Redux/store";
+import xboxConsole from "../../assets/xboxConsole.jpg";
 
 export function Consoles() {
   const didMount: boolean = useSelector(selectConsolesDidMount);
@@ -21,7 +22,7 @@ export function Consoles() {
           height="100px"
           src="https://cdn.glitch.global/484456c7-95c6-4c6d-8254-08d84585b7a3/8ea6b726-4ea9-405a-98a6-3bef3603b87d.image.png?v=1722103725076"
         />
-        <h1>PlayStation Consoles</h1>
+        <h1>Gaming Consoles</h1>
         <article style={{ padding: "3vw" }}>
           <a id="playstation5"></a>
           <div className="card text-bg-dark">
@@ -42,40 +43,37 @@ export function Consoles() {
                 Playstation 5
               </h3>
               <div className="card-text" style={{ color: "gold" }}>
-                Experience lightning-fast loading with an ultra-high speed SSD,
-                deeper immersion with support for haptic feedback1, adaptive
-                triggers1 and 3D Audio*, and an all-new generation of incredible
-                PlayStation games.
+                The PlayStation 5 (PS5) is Sony’s ninth-generation home video
+                game console, launched in November 2020 as the successor to the
+                PlayStation 4. Designed to deliver a transformative gaming
+                experience, the PS5 combines cutting-edge hardware, immersive
+                features, and a bold futuristic design to redefine what console
+                gaming can be.
               </div>
               <div
                 className="card-text"
                 style={{ color: "gold", fontSize: "auto" }}
               >
                 <small>
-                  Tristique cubilia nostra penatibus bibendum quis placerat.
-                  Lobortis velit posuere elementum ullamcorper laoreet. Maximus
-                  facilisi massa amet; congue consectetur litora. Sollicitudin
-                  elit purus natoque, tempus tincidunt quam pulvinar? Dui
-                  volutpat urna ante tristique nascetur. Praesent nam tortor
-                  sollicitudin congue interdum vehicula adipiscing. Vivamus
-                  congue magnis molestie aliquam mattis aliquet in aliquam.
-                  Molestie vel laoreet enim accumsan viverra varius quam;
-                  placerat integer. Habitant enim tempus accumsan; senectus
-                  penatibus lorem egestas bibendum. Torquent vulputate himenaeos
-                  pretium lacinia erat magnis torquent.
+                  Powerful Performance: Equipped with an 8-core AMD Zen 2 CPU
+                  and RDNA 2 GPU, the PS5 supports up to 4K resolution at 120
+                  FPS, with ray tracing for lifelike lighting and reflections.
                   <div>
-                    Ornare sem class magnis in consectetur consequat sed
-                    aliquam. Aenean proin sociosqu ornare pharetra lacus. Dictum
-                    convallis venenatis potenti proin pretium tincidunt dui ad
-                    interdum. Nascetur aenean fermentum est risus, neque
-                    iaculis.
+                    Backward Compatibility: Supports most PS4 games and
+                    accessories, making the transition smoother for longtime
+                    fans.
+                    <br />
                     <span>
-                      Semper sodales morbi nam ullamcorper sociosqu natoque a
-                      lacus.
+                      Ultra-Fast SSD: The custom 825GB NVMe SSD drastically
+                      reduces load times and enables seamless open-world
+                      exploration.
                     </span>
-                    Ipsum torquent ultricies ac vivamus, vivamus felis. Augue
-                    scelerisque curabitur mauris hac feugiat potenti id. Eu
-                    consequat tempor velit tristique mauris leo id fames.
+                    The PS5 boasts a growing library of exclusive titles like
+                    Demon’s Souls, Ratchet & Clank: Rift Apart, and Spider-Man:
+                    Miles Morales. With support for PlayStation VR and
+                    integration with streaming services like Netflix and
+                    Disney+, it’s more than just a gaming console—it's a full
+                    entertainment hub.
                   </div>
                 </small>
               </div>
@@ -92,7 +90,7 @@ export function Consoles() {
                 marginLeft: "auto",
                 marginRight: "auto",
               }}
-              src="https://gmedia.playstation.com/is/image/SIEPDC/ps4-pro-image-block-01-en-24jul20?$1600px--t$"
+              src={xboxConsole}
               className="card-img"
               alt="PS4"
             />
@@ -102,43 +100,39 @@ export function Consoles() {
                 className="card-title"
                 style={{ color: "gold", fontSize: "auto" }}
               >
-                Playstation 4
+                Xbox Series X
               </h3>
               <div className="card-text" style={{ color: "gold" }}>
-                Incredible games & non-stop entertainment The PS4 console,
-                delivering awesome gaming power, incredible entertainment and
-                vibrant HDR technology.
+                The Xbox Series X is Microsoft's flagship gaming console,
+                released in November 2020. It's a powerful machine designed for
+                high-fidelity gaming
                 <div>
-                  More ways to play. Store your games, apps, screenshots and
-                  videos with up to 1TB storage inside the PS4 console – slimmer
-                  and lighter than the original PS4 model and available in Jet
-                  Black and more colors.
+                  Processing Power: It boasts a custom AMD Zen 2 CPU and RDNA 2
+                  GPU, enabling 4K resolution gaming at up to 120 frames per
+                  second. This means incredibly detailed graphics and smooth
+                  gameplay.
                 </div>
               </div>
               <div className="card-text" style={{ color: "gold" }}>
                 <small>
                   <div>
-                    Cras sodales venenatis ac platea aliquam dictum eleifend.
-                    Parturient erat pulvinar inceptos dis nostra viverra luctus
-                    suscipit. Ultricies nisl placerat dis primis amet posuere
-                    porttitor nibh. Bibendum iaculis ante et; quisque metus
-                    phasellus. Habitasse venenatis ligula cubilia ante tortor
-                    pharetra quis. Elit vehicula elit fringilla tristique vel
-                    sapien tristique. Consequat aliquet dignissim porta
-                    suspendisse taciti porta taciti maximus lacus. Sed platea
-                    rhoncus in magnis nulla. Morbi taciti lobortis feugiat lacus
-                    varius ridiculus nisi turpis.
+                    Storage: It features a 1TB custom NVMe SSD, which
+                    drastically reduces loading times for games and allows for
+                    features like Quick Resume, letting players switch between
+                    multiple games almost instantly.
                   </div>
                   <div>
-                    Molestie sit vulputate ridiculus lorem sollicitudin lacinia
-                    scelerisque laoreet. Nascetur pellentesque non consectetur
-                    duis luctus litora egestas venenatis nibh. Etiam iaculis non
-                    habitasse penatibus ex commodo. Tellus etiam cras blandit;
-                    libero interdum diam venenatis. Ut blandit justo eu magnis
-                    ridiculus litora posuere. Natoque magnis justo tempus;
-                    curabitur maximus dictum. Litora congue eget porta volutpat
-                    cursus lectus; dictumst suscipit. In cursus sapien
-                    penatibus; eleifend vivamus maximus?
+                    Backward Compatibility: A major selling point is its
+                    extensive backward compatibility, allowing players to play
+                    thousands of games from previous Xbox generations (Xbox One,
+                    Xbox 360, and original Xbox) often with improved
+                    performance.
+                  </div>
+                  <div>
+                    Game Pass: Xbox Game Pass is a subscription service that
+                    offers a large library of games, including new first-party
+                    titles on day one, which is a significant value proposition
+                    for players.
                   </div>
                 </small>
               </div>
@@ -162,36 +156,27 @@ export function Consoles() {
 
             <div className="card-img-overlay">
               <h3 className="card-title" style={{ color: "gold" }}>
-                Playstation VR
+                Virtual Reality
               </h3>
               <div className="card-text" style={{ color: "gold" }}>
-                Immerse yourself in epic worlds that go beyond reality
-                Experience the next generation of virtual reality play with
-                stunning 4K HDR visuals, genre-defining games, and unique
-                sensations from the ground-breaking PlayStation VR2 headset and
-                PlayStation VR2 Sense ™ controller.
+                Virtual Reality (VR) gaming headsets are immersive devices that
+                transport players into interactive 3D environments. By combining
+                visual, auditory, and motion-tracking technologies, they create
+                a sense of presence—making users feel like they're truly inside
+                the game world.
               </div>
               <div className="card-text" style={{ color: "gold" }}>
                 <small>
                   <div>
-                    Dictum senectus convallis tortor sed tincidunt maecenas
-                    consectetur luctus ex. Ad in mi eu turpis class. Potenti
-                    posuere vehicula praesent tellus himenaeos. Eget aliquam
-                    augue diam tempus magnis vehicula porta. Nisl mollis etiam
-                    quam phasellus nisl. Platea et nisi pellentesque; vel morbi
-                    leo. Tortor sociosqu senectus rutrum; est primis nibh ex.
-                    Gravida dictumst habitant orci faucibus mus cras. Taciti
-                    fames iaculis sociosqu magna cras lobortis.
+                    Displaying stereoscopic 3D visuals: Separate images for each
+                    eye simulate depth.
                   </div>
                   <div>
-                    Netus porta dignissim fames, conubia fames nunc. Rhoncus
-                    nibh metus lobortis facilisi quisque maximus, elit quis
-                    tristique. Tempor tristique curabitur condimentum volutpat
-                    quis sociosqu id. Habitasse mi phasellus maximus sapien
-                    aenean ad consectetur. Id vivamus felis est a eros.
-                    Facilisis pulvinar senectus nascetur nostra vel non
-                    tincidunt lectus. Diam ultrices nascetur himenaeos
-                    tincidunt, laoreet interdum nam!
+                    Tracking head and body movement: Using gyroscopes,
+                    accelerometers, and sometimes external sensors.
+                    <br />
+                    Providing spatial audio: Sounds come from specific
+                    directions to match the virtual environment.
                   </div>
                 </small>
               </div>

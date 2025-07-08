@@ -45,7 +45,7 @@ export function Home() {
               <div className="row">
                 <div className="col">
                   <h1>
-                    <u>PlayStation</u>
+                    <u>Student Project - Gaming Blog</u>
                   </h1>
                 </div>
               </div>
@@ -152,7 +152,7 @@ export function Home() {
                   <p>
                     Discover the games you want, from exclusive blockbusters to
                     innovative indies, all brought to life with the power of the
-                    PS5™ console.
+                    console.
                   </p>
                 </div>
                 <div className="col">
@@ -206,7 +206,7 @@ export function Home() {
                 <div className="col">
                   <p>
                     Build your perfect gaming setup with controllers, headsets
-                    and other accessories for your PS5® or PS4™ console.
+                    and other accessories for your console.
                   </p>
                 </div>
                 <div className="col">
